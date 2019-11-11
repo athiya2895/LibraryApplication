@@ -246,6 +246,16 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryDataAccessLayer\LibraryDataAccessLayer.csproj">
+      <Project>{f0e24b1f-101b-4d53-aa00-fb6c531f013e}</Project>
+      <Name>LibraryDataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibraryServiceLayer\LibraryServiceLayer.csproj">
+      <Project>{4f8b6d77-8187-4a8f-b684-eaee8b764271}</Project>
+      <Name>LibraryServiceLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
