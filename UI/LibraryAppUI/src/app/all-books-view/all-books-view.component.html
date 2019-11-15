@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" placeholder="Search by author or title" class="navbar-text" [(ngModel)]="searchBook">
+        </div>
+        <div class="col-md-4">
+            <label for="SelectGenre">Search By Genre</label>
+            <select class="custom-select col-md-4" id="SelectGenre" [(ngModel)]="selectGenre" placeholder="Search By Genre">
+                <option value="">All Genres</option>
+                <option id="1" value="fiction">Fiction</option>
+                <option id="2" value="technology">Technology</option>
+                <option id="3" value="biography">Biography</option>
+                <option id="4" value="nonfiction">Non Fiction</option>
+                <option id="5" value="self-help">Self Help</option>
+            </select>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container"  (window:resize)="onResize($event)"> 
+    <mat-grid-list cols="{{rowNo}}" rowHeight="500px" >
+        <mat-grid-tile *ngFor="let books of allBooks | genre: selectGenre | filter: searchBook">
+            <mat-card class="example-card mat-elevation-z6">
+                <mat-card-header>
+                    <mat-card-title (click)="describeBook(books)" class="header">{{ books.book.title }}</mat-card-title>
+                    <button *ngIf = "isAdmin" class = "btn btn-primary-outline" (click)="deleteBook(books)"><i class="fa fa-trash" style="font-size:24px"></i></button>
+                </mat-card-header>
+                <img mat-card-image (click)="describeBook(books)" [src]="books.book.imageLinks.medium" height="300px;" alt="{{ books.book.title }}">
+                <mat-card-content (click)="describeBook(books)">
+                    <b *ngFor="let author of books.book.authors">{{author}}  </b>
+                    <!-- <star-rating-comp *ngIf="books.book.averageRating"
+                        [starType]="'svg'"
+                        [readOnly]= "true"
+                        [rating]="2">
+                    </star-rating-comp> -->
+                </mat-card-content>
+            </mat-card>      
+        </mat-grid-tile>
+    </mat-grid-list> 
+</div>

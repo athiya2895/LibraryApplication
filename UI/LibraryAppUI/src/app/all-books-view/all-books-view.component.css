@@ -1,0 +1,26 @@
+.example-card{ 
+    max-width: 260px;
+    height: 500px;
+    margin-bottom: 20px;
+}
+.margin-left{
+    margin-left:30px;
+}
+.header{
+    text-align: center;    
+}
+.mat-grid-tile .mat-grid-tile-footer{
+    background: aliceblue;
+}
+.mat-card:hover {
+    background: silver;
+    cursor: pointer;
+}
+.mat-card-image:hover {
+    cursor: pointer;
+}
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: transparent;
+    margin-top: 0;
+}
