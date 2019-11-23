@@ -1,1 +1,76 @@
-<p>book-desc works!</p>
+<app-header></app-header>
+<div class="container"> 
+  <div class="row" style="margin-left:30%">
+      <h3>{{book.title}}</h3>
+  </div>
+</div>
+
+<hr>
+<div class="container"> 
+  <div *ngIf="book" class="row">
+    <div class="col-md-4"> 
+      <img class="img-responsive" height="auto" width="auto" [src]="book.imageLinks.small"><br><br>
+      <star-rating-comp *ngIf="book.averageRating"
+        [starType]="'svg'" 
+        [rating]="book.averageRating"
+        [showHalfStars]="true"
+        [readOnly]= "true">
+      </star-rating-comp>
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <tr>
+                <td>ISBN</td> 
+                <td class="text-primary">{{book.id}}</td>
+            </tr>
+            <tr>
+                <td>AUTHORS</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let author of book.authors" class="text-primary">{{author}}</li>
+                  </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>DESCRIPTION</td>  
+                <td class="text-primary text-size" [innerHTML]="book.description"></td>
+            </tr>
+            <tr>
+                <td>GENRE</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let category of book.categories" class="text-primary">{{category}}</li>
+                  </ul>
+                </td>
+            </tr>
+            <tr *ngIf = "isAdmin && inEdit === false">
+              <td>Number of copies</td>
+              <td class="text-primary">{{book.noOfCopies}}</td>
+            </tr>
+            <tr *ngIf = "inEdit === true">
+              <td>Number of copies</td>
+              <td><input type = "number" min="0" [(ngModel)]="copies"></td>
+            </tr>
+            <tr>
+              <td *ngIf="book.noOfCopies !== 0 && issued === false && limitReached === false"><p class="text-success">Available for Issue</p></td>
+              <td *ngIf="issued" class="text-danger">Book already issued</td>
+              <td *ngIf="book.noOfCopies === 0"><p class="text-danger">Book out of stock!</p></td>
+              <td *ngIf="renewed"><p class="text-success">Book Renewed for five more days</p></td>
+              <td *ngIf="limitReached !== false" class="text-danger">You already have 3 books issued</td>
+            </tr>
+            <tr>
+              <td *ngIf="book.noOfCopies !== 0 && issued === false && limitReached === false"><button class="btn btn-primary" (click)="IssueBook();">Issue Book</button></td>
+              <td *ngIf="issued"><button class="btn btn-primary" (click)="ReturnBook();">Return Book</button></td>
+              <td *ngIf="issued"><button class="btn btn-danger" (click)="RenewBook();">Renew Book</button></td>
+              <td *ngIf="returned"><button class="btn btn-success" (click)="RateBook();">Rate Book</button></td>
+            </tr>
+            <tr>
+                <td *ngIf="isAdmin && inEdit === false"><button class="btn btn-primary" (click)="EditBook()">Edit Book</button></td>
+                <td *ngIf="isAdmin && inEdit === true"><button class="btn btn-success" (click)="SaveBook()">Save Book</button></td>
+            </tr>
+          </table>
+    </div>
+    <hr>
+  </div>
+</div>
+  

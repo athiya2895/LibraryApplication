@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="container"> 
+    <div class="form-control">  
+            <input type="text" class="col-xs-4" placeholder="ISBN number of book" required maxlength="13" #isbnNo>
+            <button type="submit" class="btn btn-primary col-xs-4" (click)="getBook(isbnNo)">Fetch Book</button>
+    </div>
+</div>
+<div class="container"> 
+    <div *ngIf="done">
+        <p class="text-success"> Book Added!</p>
+    </div>
+    <div *ngIf="book && !done" class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2"> 
+            <img class="img-responsive" [src]="book.imageLinks.thumbnail">
+        </div>
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <tr>
+                    <td>ISBN</td> 
+                    <td class="text-primary">{{book.id}}</td>
+                </tr>
+                <tr>
+                    <td>TITLE</td>    
+                    <td class="text-primary">{{book.title}}</td>
+                </tr>
+                <tr>
+                    <td>AUTHORS</td>
+                    <td>
+                    <ul>
+                        <li *ngFor="let author of book.authors" class="text-primary">{{author}}</li>
+                    </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DESCRIPTION</td>  
+                    <td class="text-primary" [innerHTML]="book.description"></td>
+                </tr>
+                <tr>
+                    <td>GENRE</td>
+                    <td>
+                    <ul>
+                        <li *ngFor="let category of book.categories" class="text-primary">{{category}}</li>
+                    </ul>
+                    </td>
+                </tr>
+                <tr>
+                <td>NUMBER OF BOOKS</td>
+                <td>
+                    <input type="number" class="form-control" placeholder="Number of books" [(ngModel)]="numberOfBooks">
+                </td>
+            </tr>
+            </table>
+            <button class="btn btn-primary" (click)="addNewBook()">Add Book</button>
+        </div>
+        <hr>
+    </div>
+</div>

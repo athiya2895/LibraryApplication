@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../CustomClasses/Book';
 import { DBBook } from '../CustomClasses/DbBook';
 import { MatDialog } from '@angular/material';
-import { BookService } from '../services/books.service';
+import { BookService } from '../Services/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-books-view',
@@ -11,7 +12,8 @@ import { BookService } from '../services/books.service';
 })
 export class AllBooksViewComponent implements OnInit {
 
-  constructor(private bookservice: BookService,
+  constructor(private router: Router,
+    private bookservice: BookService,
     private dialog: MatDialog) { }
   rowNo = 3;
   books: Book[] = new Array<Book>();
@@ -42,7 +44,7 @@ export class AllBooksViewComponent implements OnInit {
   }
   describeBook(dbbook: DBBook) {
     localStorage.setItem('BookDesc', JSON.stringify(dbbook));
-  // this.router.navigate(['/bookdesc/' + dbbook.book.id]);
+    this.router.navigate(['/bookdesc/' + dbbook.book.id]);
   }
   addBookNav() {
     // this.router.navigate(['addBook']);

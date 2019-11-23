@@ -11,7 +11,6 @@ export class BookService {
     
     public getAllBooks()  {
 
-
         return AllBooks;
     }
 }

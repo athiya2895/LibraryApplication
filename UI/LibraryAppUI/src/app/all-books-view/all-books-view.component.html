@@ -29,11 +29,12 @@
                 <img mat-card-image (click)="describeBook(books)" [src]="books.book.imageLinks.medium" height="300px;" alt="{{ books.book.title }}">
                 <mat-card-content (click)="describeBook(books)">
                     <b *ngFor="let author of books.book.authors">{{author}}  </b>
-                    <!-- <star-rating-comp *ngIf="books.book.averageRating"
+                    <star-rating-comp *ngIf="books.book.averageRating"
                         [starType]="'svg'"
                         [readOnly]= "true"
-                        [rating]="2">
-                    </star-rating-comp> -->
+                        [showHalfStars]="true"
+                        [rating]="books.book.averageRating">
+                    </star-rating-comp>
                 </mat-card-content>
             </mat-card>      
         </mat-grid-tile>

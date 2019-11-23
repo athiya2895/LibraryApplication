@@ -1,0 +1,12 @@
+.example-card{
+    width: 1000px;;
+    height: auto;
+    margin-left:70px;
+    margin-top:70px;
+}
+.text-size{
+    font-size: small;
+}
+.img-responsive{
+    margin-left: 35px;
+}
