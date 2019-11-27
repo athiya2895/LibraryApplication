@@ -2,4 +2,13 @@
     <div class="navbar-header">
             <a class="navbar-brand" routerLink="/home">ATL</a>
     </div> 
+    <div class="nav navbar-right">
+        <button mat-button [matMenuTriggerFor]="menu" class="btn btn-primary btn-style" >Welcome {{userName}}</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="viewAllDetails()">View User List</button>
+            <button mat-menu-item (click)="AddBook()">Add Book</button>
+            <button mat-menu-item (click)="viewProfile()">Profile</button>
+            <button mat-menu-item (click)="onLogout()">Logout</button>
+        </mat-menu>
+    </div>
 </nav>

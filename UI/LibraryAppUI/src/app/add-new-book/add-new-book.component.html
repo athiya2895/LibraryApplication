@@ -1,8 +1,8 @@
 <app-header></app-header>
-<div class="container"> 
-    <div class="form-control">  
-            <input type="text" class="col-xs-4" placeholder="ISBN number of book" required maxlength="13" #isbnNo>
-            <button type="submit" class="btn btn-primary col-xs-4" (click)="getBook(isbnNo)">Fetch Book</button>
+<div> 
+    <div style="text-align: center;">  
+            <input type="text" placeholder="ISBN number of book" required maxlength="13" #isbnNo>&nbsp;
+            <button type="submit" class="btn btn-primary" (click)="getBook(isbnNo)">Fetch Book</button>
     </div>
 </div>
 <div class="container"> 

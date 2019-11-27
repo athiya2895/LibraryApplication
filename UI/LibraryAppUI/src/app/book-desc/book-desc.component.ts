@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Book } from '../CustomClasses/Book';
 import { DBBook } from '../CustomClasses/DbBook';
 import { MatDialog } from '@angular/material';
+import { RatingChangeEvent } from 'angular-star-rating';
 
 @Component({
   selector: 'app-book-desc',
@@ -90,34 +91,34 @@ export class BookDescComponent implements OnInit {
     //this.bookService.updateBook(this.dbbook.id, this.dbbook.book).subscribe();
   }
   RateBook() {
-    // const dialogRef = this.dialog.open(RateBookDialogBoxComponent, {
-    // width: '250px'
-    // });
-    // dialogRef.afterClosed().subscribe(res => {
-    // this.returned = false;
-    // this.rating = res;
-    // const avg = this.dbbook.book.averageRating;
-    // if (avg === NaN) {
-    // this.dbbook.book.averageRating = this.rating;
-    // this.dbbook.book.ratingsCount = 1;
-    // } else {
-    // const count = this.dbbook.book.ratingsCount;
-    // this.dbbook.book.averageRating = ((avg * count) + this.rating) / (count + 1);
-    // this.dbbook.book.ratingsCount = this.dbbook.book.ratingsCount + 1;
-    // }
-    // localStorage.setItem('BookDesc', JSON.stringify(this.dbbook));
-    // //this.bookService.updateBook(this.dbbook.id, this.dbbook.book).subscribe();
-    // });
-    // }
+    const dialogRef = this.dialog.open(RateBookDialogBoxComponent, {
+      width: '250px'
+    });
+    dialogRef.afterClosed().subscribe(res => {
+        this.returned = false;
+        this.rating = res;
+        const avg = this.dbbook.book.averageRating;
+        if (avg === NaN) {
+          this.dbbook.book.averageRating = this.rating;
+          this.dbbook.book.ratingsCount = 1;
+        } else {
+          const count = this.dbbook.book.ratingsCount;
+          this.dbbook.book.averageRating = ((avg * count) + this.rating) / (count + 1);
+          this.dbbook.book.ratingsCount = this.dbbook.book.ratingsCount + 1;
+        }
+        localStorage.setItem('BookDesc', JSON.stringify(this.dbbook));
+        //this.bookService.updateBook(this.dbbook.id, this.dbbook.book).subscribe();
+      });
+    }
   }
-// @Component({
-// selector: 'app-rate-book-dialog',
-// templateUrl: './rateBook/rate-book-dialog.html',
-// })
-// export class RateBookDialogBoxComponent {
-// rating: number;
-// onRatingChange($event: OnRatingChangeEven) {
-// this.rating = $event.rating;
-// }
+@Component({
+  selector: 'app-rate-book-dialog',
+  templateUrl: './rateBook/rate-book-dialog.html',
+})
+export class RateBookDialogBoxComponent {
+  rating: number;
+  onRatingChange($event: RatingChangeEvent) {
+    this.rating = $event.rating;
+  }
 
 }

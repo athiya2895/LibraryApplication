@@ -13,8 +13,8 @@ export class ISBNBookService {
     public getBook(isbn: string): Observable<Book>  {
         return this.http.get(this.url + isbn).map((res: any) => {
             console.log(res);
-           const data = res;
-           return data;
+            const data = res;
+            return data;
         });
     }
 }
