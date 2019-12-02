@@ -9,7 +9,7 @@ export class AuthService {
     url = 'https://localhost:44330/api/User';
     public postUser(user: User) {
         console.log('api call');
-        user.UserRole = 'user';
+        user.Role = 'user';
         return this.http.post(this.url,user).map((res: any) => {
             console.log(res);
             // const data = res;

@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/Services/AuthService.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  user: User = new User('', '');
+  user: User = new User('', '','');
   customer: Customer = new Customer('','','','',new Date,'');
   constructor(private router: Router,private auth: AuthService) { }
 
@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     const firstName = form.value.firstName;
     const lastName = form.value.lastName;
     var name = firstName + lastName;
-    this.user = new User('user', email);
+    this.user = new User('user', email, password);
     this.customer = new Customer(email,name,'Male','blore',new Date,'1234');
     this.auth.postUser(this.user).subscribe();
     // this.loggedInUser.insertUser(this.user);

@@ -1,5 +1,0 @@
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\Models.dll
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\Models.pdb
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\Models.csprojAssemblyReference.cache
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\Models.dll
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\Models.pdb

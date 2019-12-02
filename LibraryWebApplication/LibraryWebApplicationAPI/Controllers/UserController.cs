@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using LibraryDataModel.Entity;
+using LibraryServiceLayer;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,16 @@ namespace LibraryWebApplicationAPI.Controllers
     public class UserController : ApiController
     {
         //private UnitOfWork unitOfWork = new UnitOfWork();
-        public void Post([FromBody]LibaryUser value)        
+        public void Post([FromBody]UserLogin value)        
         {
             //unitOfWork.CourseRepository.Insert(value);
-            LibraryServiceLayer.UserAuthentication userAuthentication = new LibraryServiceLayer.UserAuthentication();
+            UserAuthentication userAuthentication = new UserAuthentication();
             userAuthentication.PostUser(value);
         }
-       // public string Get()
-      //  {
-            //return JsonConvert.SerializeObject(unitOfWork.UserRepository.Get());
-       // }
+        public string Get()
+        {
+            UserAuthentication userAuthentication = new UserAuthentication();
+            return JsonConvert.SerializeObject(userAuthentication.GetUsers());
+        }
     }
 }

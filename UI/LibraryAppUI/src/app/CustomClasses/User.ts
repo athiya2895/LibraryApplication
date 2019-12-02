@@ -1,10 +1,12 @@
 
 export class User {
-    UserRole: string;
+    Role: string;
     UserID: string;
+    Password: string;
 //    issuedBooks: Array<IssuedBook> = new Array<IssuedBook>();
-    constructor(_role: string, _userID: string) {
-        this.UserRole = _role;
+    constructor(_role: string, _userID: string, _pwd: string) {
+        this.Role = _role;
         this.UserID = _userID;
+        this.Password = _pwd;
     }
 }
