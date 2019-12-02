@@ -21,6 +21,9 @@ import { AddNewBookComponent } from './add-new-book/add-new-book.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SigninComponent } from './Authentication/signin/signin.component';
+import { SignupComponent } from './Authentication/signup/signup.component';
+import { AuthService } from './Services/AuthService.service';
 
 //import { StarRatingModule } from 'angular-star-rating';
 
@@ -33,7 +36,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FilterPipe,
     GenrePipe,
     AddNewBookComponent,
-    RateBookDialogBoxComponent
+    RateBookDialogBoxComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     BookService,
-    ISBNBookService
+    ISBNBookService,
+    AuthService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ RateBookDialogBoxComponent ]

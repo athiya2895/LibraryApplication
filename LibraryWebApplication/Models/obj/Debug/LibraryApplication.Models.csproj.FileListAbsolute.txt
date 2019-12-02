@@ -1,0 +1,14 @@
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\Models.dll.config
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\Models.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\Models.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\EntityFramework.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\LibraryDataAccessLayer.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\LibraryDataAccessLayer.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\LibraryDataAccessLayer.dll.config
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\EntityFramework.xml
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\LibraryApplication.Models.csprojAssemblyReference.cache
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\LibraryApplication.Models.csproj.CopyComplete
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\Models.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\Models\obj\Debug\Models.pdb

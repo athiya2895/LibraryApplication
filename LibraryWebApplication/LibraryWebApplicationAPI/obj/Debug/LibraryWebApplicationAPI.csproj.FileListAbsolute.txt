@@ -48,7 +48,6 @@ D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAP
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\roslyn\VBCSCompiler.exe
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\roslyn\VBCSCompiler.exe.config
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Antlr3.Runtime.dll
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryServiceLayer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Microsoft.Web.Infrastructure.dll
@@ -64,8 +63,6 @@ D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAP
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.WebPages.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.WebPages.Razor.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\WebGrease.dll
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.pdb
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll.config
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryServiceLayer.pdb
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryServiceLayer.dll.config
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Newtonsoft.Json.xml
@@ -85,3 +82,16 @@ D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAP
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.csproj.CopyComplete
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Models.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Models.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.SqlServer.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll.config
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.xml
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.SqlServer.xml
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Models.dll.config
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.Cors.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.Http.Cors.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.Http.Cors.xml

@@ -60,3 +60,6 @@ D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.csproj.CopyComplete
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.dll.config
