@@ -9,6 +9,7 @@
 
 namespace LibraryDataAccessLayer
 {
+    using LibraryDataModel.Entity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;

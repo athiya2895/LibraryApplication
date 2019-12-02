@@ -117,3 +117,6 @@ D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\obj\Debug\Lib
 D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\obj\Debug\LibraryDataAccessLayer.csproj.CopyComplete
 D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\obj\Debug\LibraryDataAccessLayer.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\obj\Debug\LibraryDataAccessLayer.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\bin\LibraryDataModel.Entity.dll
+D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\bin\LibraryDataModel.Entity.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryDataAccessLayer\bin\LibraryDataModel.Entity.dll.config

@@ -248,9 +248,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryDataAccessLayer\LibraryDataAccessLayer.csproj">
-      <Project>{f0e24b1f-101b-4d53-aa00-fb6c531f013e}</Project>
-      <Name>LibraryDataAccessLayer</Name>
+    <ProjectReference Include="..\LibraryDataModel.Entity\LibraryDataModel.Entity.csproj">
+      <Project>{7803803f-adc8-4fb1-93a4-7e04b093d77a}</Project>
+      <Name>LibraryDataModel.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryServiceLayer\LibraryServiceLayer.csproj">
       <Project>{4f8b6d77-8187-4a8f-b684-eaee8b764271}</Project>

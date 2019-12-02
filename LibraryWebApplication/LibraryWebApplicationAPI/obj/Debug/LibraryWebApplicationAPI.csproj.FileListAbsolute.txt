@@ -135,7 +135,6 @@ D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\roslyn\
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\roslyn\VBCSCompiler.exe
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\roslyn\VBCSCompiler.exe.config
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Antlr3.Runtime.dll
-D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryServiceLayer.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Microsoft.Web.Infrastructure.dll
@@ -151,9 +150,6 @@ D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.WebPages.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.WebPages.Razor.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\WebGrease.dll
-D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.dll
-D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.pdb
-D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll.config
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryServiceLayer.pdb
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryServiceLayer.dll.config
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Newtonsoft.Json.xml
@@ -169,9 +165,11 @@ D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\System.Web.WebPages.Razor.xml
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Antlr3.Runtime.pdb
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.xml
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.csprojAssemblyReference.cache
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.csproj.CoreCompileInputs.cache
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.csproj.CopyComplete
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\LibraryWebApplicationAPI.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataModel.Entity.dll
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataModel.Entity.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataModel.Entity.dll.config

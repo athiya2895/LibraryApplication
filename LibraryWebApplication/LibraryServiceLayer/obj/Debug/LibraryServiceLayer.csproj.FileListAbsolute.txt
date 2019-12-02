@@ -123,3 +123,6 @@ D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\Librar
 D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.csproj.CopyComplete
 D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryDataModel.Entity.dll
+D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryDataModel.Entity.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryDataModel.Entity.dll.config
