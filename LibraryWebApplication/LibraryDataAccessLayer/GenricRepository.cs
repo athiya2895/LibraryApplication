@@ -9,10 +9,10 @@ namespace LibraryDataAccessLayer
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
-        internal LibraryDbEntities context;
+        internal LibraryDBEntitiesContext context;
         internal DbSet<TEntity> dbSet;
 
-        public GenericRepository(LibraryDbEntities _context)
+        public GenericRepository(LibraryDBEntitiesContext _context)
         {
             this.context = _context;
             this.dbSet = context.Set<TEntity>();

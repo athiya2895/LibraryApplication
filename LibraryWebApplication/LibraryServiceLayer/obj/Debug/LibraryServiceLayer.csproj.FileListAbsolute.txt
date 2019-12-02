@@ -1,3 +1,4 @@
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.csprojAssemblyReference.cache
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryServiceLayer.dll.config
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryServiceLayer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryServiceLayer.pdb
@@ -51,15 +52,14 @@ D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\EntityFramework.SqlServer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryDataAccessLayer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryDataAccessLayer.pdb
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\LibraryDataAccessLayer.dll.config
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.pdb
+D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.dll.config
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\EntityFramework.xml
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\EntityFramework.SqlServer.xml
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.csprojAssemblyReference.cache
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.csproj.CopyComplete
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.dll
 D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\obj\Debug\LibraryServiceLayer.pdb
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.dll
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.pdb
-D:\Git\Projects\LibraryApplication\LibraryWebApplication\LibraryServiceLayer\bin\Models.dll.config

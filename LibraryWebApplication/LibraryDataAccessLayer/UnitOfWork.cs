@@ -7,9 +7,9 @@ namespace LibraryDataAccessLayer
 {
     public class UnitOfWork : IDisposable
     {
-        private LibraryDbEntities context = new LibraryDbEntities();
+        private LibraryDBEntitiesContext context = new LibraryDBEntitiesContext();
         private GenericRepository<Customer> customerRepository;
-        private GenericRepository<LibaryUser> userRepository;
+        private GenericRepository<UserLogin> userRepository;
         public GenericRepository<Customer> CustomerRepository
         {
             get
@@ -22,14 +22,14 @@ namespace LibraryDataAccessLayer
                 return customerRepository;
             }
         }
-        public GenericRepository<LibaryUser> UserRepository
+        public GenericRepository<UserLogin> UserRepository
         {
             get
             {
 
                 if (this.userRepository == null)
                 {
-                    this.userRepository = new GenericRepository<LibaryUser>(context);
+                    this.userRepository = new GenericRepository<UserLogin>(context);
                 }
                 return userRepository;
             }

@@ -14,7 +14,7 @@ namespace LibraryWebApplicationAPI.Controllers
     public class UserController : ApiController
     {
         //private UnitOfWork unitOfWork = new UnitOfWork();
-        public void Post([FromBody]LibaryUser value)
+        public void Post([FromBody]LibaryUser value)        
         {
             //unitOfWork.CourseRepository.Insert(value);
             LibraryServiceLayer.UserAuthentication userAuthentication = new LibraryServiceLayer.UserAuthentication();

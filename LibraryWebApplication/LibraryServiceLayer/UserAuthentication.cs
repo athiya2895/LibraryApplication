@@ -11,9 +11,9 @@ namespace LibraryServiceLayer
         private UnitOfWork unitOfWork = new UnitOfWork();
         public void PostUser(Models.LibaryUser user)
         {
-            unitOfWork.UserRepository.Insert(new LibaryUser() {
+            unitOfWork.UserRepository.Insert(new UserLogin() {
                 UserID = user.UserID,
-                UserRole = user.UserRole
+                Role = user.UserRole
             });
             unitOfWork.Save();
             //LibraryDataAccessLayer.UserAuthentication auth = new LibraryDataAccessLayer.UserAuthentication();

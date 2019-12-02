@@ -14,14 +14,22 @@ namespace LibraryDataAccessLayer
     
     public partial class Customer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Customer()
+        {
+            this.CustomerMemberShips = new HashSet<CustomerMemberShip>();
+        }
+    
         public int CustomerID { get; set; }
-        public string UserID { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
+        public string UserID { get; set; }
     
-        public virtual LibaryUser LibaryUser { get; set; }
+        public virtual UserLogin UserLogin { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CustomerMemberShip> CustomerMemberShips { get; set; }
     }
 }

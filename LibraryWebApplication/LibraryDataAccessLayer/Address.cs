@@ -12,18 +12,22 @@ namespace LibraryDataAccessLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class LibaryUser
+    public partial class Address
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LibaryUser()
+        public Address()
         {
-            this.Customers = new HashSet<Customer>();
+            this.Libraries = new HashSet<Library>();
         }
     
-        public string UserID { get; set; }
-        public string UserRole { get; set; }
+        public int AddressID { get; set; }
+        public string StreetName { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+        public string Pincode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Library> Libraries { get; set; }
     }
 }
