@@ -115,6 +115,7 @@
     <Compile Include="CustomerMemberShip.cs">
       <DependentUpon>LibraryDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GenericRepository.cs" />
     <Compile Include="Librarian.cs">
       <DependentUpon>LibraryDataModel.tt</DependentUpon>
     </Compile>
@@ -146,6 +147,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>LibraryDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UnitOfWork.cs" />
     <Compile Include="UserLogin.cs">
       <DependentUpon>LibraryDataModel.tt</DependentUpon>
     </Compile>
