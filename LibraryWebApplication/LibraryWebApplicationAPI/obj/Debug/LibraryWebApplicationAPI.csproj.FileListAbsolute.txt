@@ -173,3 +173,8 @@ D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\obj\Debug\L
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataModel.Entity.dll
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataModel.Entity.pdb
 D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataModel.Entity.dll.config
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.dll
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.pdb
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\LibraryDataAccessLayer.dll.config
+D:\LibraryApplication\LibraryWebApplication\LibraryWebApplicationAPI\bin\EntityFramework.xml
