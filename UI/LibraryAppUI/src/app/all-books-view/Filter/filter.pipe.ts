@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DBBook } from '../../CustomClasses/DbBook';
+import { DBBook } from '../../CustomClasses/Book';
 @Pipe({
   name: 'filter'
 })
@@ -13,10 +13,10 @@ export class FilterPipe implements PipeTransform {
     }
 searchText = searchText.toLowerCase();
 return items.filter( it => {
-      if (it.book.title.toLowerCase().includes(searchText)) {
+      if (it.Title.toLowerCase().includes(searchText)) {
         return true;
       } else {
-        for (const author of it.book.authors) {
+        for (const author of it.Author) {
           if (author.toLowerCase().includes(searchText)) {
             return true;
           }

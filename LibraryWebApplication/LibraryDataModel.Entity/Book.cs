@@ -29,8 +29,12 @@ namespace LibraryDataModel.Entity
         public Nullable<System.DateTime> PublishedDate { get; set; }
         public string Publisher { get; set; }
         public string Categories { get; set; }
+        public string Description { get; set; }
+        public double AverageRating { get; set; }
+        public int RatingsCount { get; set; }
         public bool IsAvailable { get; set; }
-    
+        public List<string> Author { get; set; }
+
         public virtual ICollection<BooksAtLibrary> BooksAtLibraries { get; set; }
         public virtual ICollection<BooksAuthor> BooksAuthors { get; set; }
         public virtual ICollection<BookTransaction> BookTransactions { get; set; }

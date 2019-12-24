@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="LibraryDBModel.Library" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.MemberShip" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.MemberShipType" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.UserLogin" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="LibraryDBModel.FK_Library_Address" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BooksAuthors_Author" ManuallyRouted="false" />

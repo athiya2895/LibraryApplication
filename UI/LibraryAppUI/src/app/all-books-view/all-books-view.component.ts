@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../CustomClasses/Book';
-import { DBBook } from '../CustomClasses/DbBook';
+import { DBBook } from '../CustomClasses/DBBook';
+//import { DBBook } from '../CustomClasses/DbBook';
 import { MatDialog } from '@angular/material';
 import { BookService } from '../Services/books.service';
 import { Router } from '@angular/router';
@@ -16,9 +16,9 @@ export class AllBooksViewComponent implements OnInit {
     private bookservice: BookService,
     private dialog: MatDialog) { }
   rowNo = 3;
-  books: Book[] = new Array<Book>();
+  //books: Book[] = new Array<Book>();
   searchBook = '';
-  tempBooks: Book[] = [];
+  //tempBooks: Book[] = [];
   averageRating: number[] = [];
   dbBook: DBBook = null;
   allBooks: DBBook[] = new Array<DBBook>();
@@ -30,21 +30,35 @@ export class AllBooksViewComponent implements OnInit {
     // if (await this.gaurd.canActivate()) {
     // this.isAdmin = true;
     // }
-    this.books = new Array<Book>();
-    this.data = this.bookservice.getAllBooks();
-    console.log("comp"+this.data);
-    for (const id in this.data) {
-      console.log(id);
-      this.dbBook = new DBBook(id, this.data[id].id, this.data[id].title, this.data[id].authors, this.data[id].publisher,
-      this.data[id].publishedDate, this.data[id].description, this.data[id].categories, this.data[id].averageRating,
-      this.data[id].ratingsCount, this.data[id].noOfCopies, this.data[id].imageLinks);
-      this.allBooks.push(this.dbBook);
-      this.books.push(this.dbBook.book);
-    }
+   // this.books = new Array<Book>();
+    this.bookservice.getBooks().then(res=>
+      {
+        console.log(res);
+        // var temp = res;
+        for (const id in res) {
+            console.log(id);
+            // this.dbBook = new DBBook(id, this.data[id].id, this.data[id].title, this.data[id].authors, this.data[id].publisher,
+            // this.data[id].publishedDate, this.data[id].description, this.data[id].categories, this.data[id].averageRating,
+            // this.data[id].ratingsCount, this.data[id].noOfCopies, this.data[id].imageLinks);
+            // this.allBooks.push(this.dbBook);
+            // this.books.push(this.dbBook.book);
+          }
+        console.log("comp "+typeof(this.allBooks));
+      });
+    //this.data = this.bookservice.getAllBooks();
+    
+    // for (const id in this.data) {
+    //   console.log(id);
+    //   this.dbBook = new DBBook(id, this.data[id].id, this.data[id].title, this.data[id].authors, this.data[id].publisher,
+    //   this.data[id].publishedDate, this.data[id].description, this.data[id].categories, this.data[id].averageRating,
+    //   this.data[id].ratingsCount, this.data[id].noOfCopies, this.data[id].imageLinks);
+    //   this.allBooks.push(this.dbBook);
+    //   this.books.push(this.dbBook.book);
+    // }
   }
   describeBook(dbbook: DBBook) {
     localStorage.setItem('BookDesc', JSON.stringify(dbbook));
-    this.router.navigate(['/bookdesc/' + dbbook.book.id]);
+    this.router.navigate(['/bookdesc/' + dbbook.ISBN]);
   }
   addBookNav() {
     // this.router.navigate(['addBook']);

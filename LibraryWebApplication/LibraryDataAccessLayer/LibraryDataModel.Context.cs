@@ -38,7 +38,6 @@ namespace LibraryDataAccessLayer
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<MemberShip> MemberShips { get; set; }
         public virtual DbSet<MemberShipType> MemberShipTypes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserLogin> UserLogins { get; set; }
     }
 }

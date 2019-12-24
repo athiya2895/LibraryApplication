@@ -26,14 +26,14 @@
                     <mat-card-title (click)="describeBook(books)" class="header">{{ books.book.title }}</mat-card-title>
                     <button *ngIf = "isAdmin" class = "btn btn-primary-outline" (click)="deleteBook(books)"><i class="fa fa-trash" style="font-size:24px"></i></button>
                 </mat-card-header>
-                <img mat-card-image (click)="describeBook(books)" [src]="books.book.imageLinks.medium" height="300px;" alt="{{ books.book.title }}">
+                <img mat-card-image (click)="describeBook(books)" [src]="books.book.ImageLink" height="300px;" alt="{{ books.Title }}">
                 <mat-card-content (click)="describeBook(books)">
-                    <b *ngFor="let author of books.book.authors">{{author}}  </b>
-                    <star-rating-comp *ngIf="books.book.averageRating"
+                    <b *ngFor="let author of books.Author">{{author}}  </b>
+                    <star-rating-comp *ngIf="books.AverageRating"
                         [starType]="'svg'"
                         [readOnly]= "true"
                         [showHalfStars]="true"
-                        [rating]="books.book.averageRating">
+                        [rating]="books.AverageRating">
                     </star-rating-comp>
                 </mat-card-content>
             </mat-card>      

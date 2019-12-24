@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DBBook } from '../../CustomClasses/DbBook';
+import { DBBook } from '../../CustomClasses/Book';
 @Pipe({
   name: 'genre'
 })
@@ -13,8 +13,8 @@ export class GenrePipe implements PipeTransform {
     }
     searchGenre = searchGenre.toLowerCase();
     return items.filter( it => {
-      if (it.book.categories !== undefined) {
-        for (const category of it.book.categories) {
+      if (it.Categories !== undefined) {
+        for (const category of it.Categories) {
             if (category.toLowerCase().includes(searchGenre)) {
               return true;
             }

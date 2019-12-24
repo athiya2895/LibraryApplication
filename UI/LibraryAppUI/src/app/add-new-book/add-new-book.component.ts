@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../CustomClasses/Book';
+import { DBBook } from '../CustomClasses/DBBook';
 import { ISBNBookService } from '../Services/ISBNBookService.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ISBNBookService } from '../Services/ISBNBookService.service';
 })
 export class AddNewBookComponent implements OnInit {
 
-  book: Book;
+  book: DBBook;
   done = false;
   numberOfBooks = 0;
   constructor(private bookService: ISBNBookService) { }
@@ -18,14 +18,14 @@ export class AddNewBookComponent implements OnInit {
   getBook(isbn: any) {
     this.book = null;
     this.done = false;
-    this.bookService.getBook(isbn.value).subscribe((res: Book) => {
+    this.bookService.getBook(isbn.value).subscribe((res: DBBook) => {
        this.mapBook(res);
     });
   }
   mapBook(res: any) {
-    this.book = new Book(res.id, res.volumeInfo.title, res.volumeInfo.authors, res.volumeInfo.publisher,
-      res.volumeInfo.publishedDate, res.volumeInfo.description, res.volumeInfo.categories,
-      res.volumeInfo.averageRating, res.volumeInfo.ratingsCount, 0, res.volumeInfo.imageLinks );
+    // this.book = new Book(res.id, res.volumeInfo.title, res.volumeInfo.authors, res.volumeInfo.publisher,
+    //   res.volumeInfo.publishedDate, res.volumeInfo.description, res.volumeInfo.categories,
+    //   res.volumeInfo.averageRating, res.volumeInfo.ratingsCount, 0, res.volumeInfo.imageLinks );
   }
   addNewBook() {
     this.book.noOfCopies = this.numberOfBooks;
