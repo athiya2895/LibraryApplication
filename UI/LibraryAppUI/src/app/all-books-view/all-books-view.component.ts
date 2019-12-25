@@ -31,22 +31,34 @@ export class AllBooksViewComponent implements OnInit {
     // this.isAdmin = true;
     // }
    // this.books = new Array<Book>();
-    this.bookservice.getBooks().then(res=>
-      {
-        console.log(res);
-        // var temp = res;
-        for (const id in res) {
-            console.log(id);
-            // this.dbBook = new DBBook(id, this.data[id].id, this.data[id].title, this.data[id].authors, this.data[id].publisher,
-            // this.data[id].publishedDate, this.data[id].description, this.data[id].categories, this.data[id].averageRating,
-            // this.data[id].ratingsCount, this.data[id].noOfCopies, this.data[id].imageLinks);
-            // this.allBooks.push(this.dbBook);
-            // this.books.push(this.dbBook.book);
-          }
-        console.log("comp "+typeof(this.allBooks));
-      });
+     this.bookservice.getBooks().subscribe(res =>
+     {
+       console.log(res);
+       this.allBooks = res;
+      console.log(this.allBooks);
+    //     var ids = [];
+
+    //     for (let i = 0; i < res.length; i++) {
+    //         console.log(res[i].ISBN)
+    //     }
+    //     console.log(res.valueOf()[0].ISBN);
+    //     this.allBooks = res as DBBook[];
+    //     // var temp = res;
+    //     var arr = Object.keys(res);
+    //     // = arr;
+    //     console.log(res[0].ISBN);
+    //     // for (const id in res) {
+    //     //     console.log(id);
+    //     //     // this.dbBook = new DBBook(id, this.data[id].id, this.data[id].title, this.data[id].authors, this.data[id].publisher,
+    //     //     // this.data[id].publishedDate, this.data[id].description, this.data[id].categories, this.data[id].averageRating,
+    //     //     // this.data[id].ratingsCount, this.data[id].noOfCopies, this.data[id].imageLinks);
+    //     //     // this.allBooks.push(this.dbBook);
+    //     //     // this.books.push(this.dbBook.book);
+    //     //   }
+    //     console.log("comp "+this.allBooks[0]);
+       });
     //this.data = this.bookservice.getAllBooks();
-    
+    //console.log(typeof(this.data));
     // for (const id in this.data) {
     //   console.log(id);
     //   this.dbBook = new DBBook(id, this.data[id].id, this.data[id].title, this.data[id].authors, this.data[id].publisher,

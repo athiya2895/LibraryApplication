@@ -19,8 +19,8 @@ namespace LibraryServiceLayer.Services
                 authors.Add(new List<string>());
                 foreach(var author in book.BooksAuthors)
                 {
-                    var auth = unitOfWork.AuthorRepository.GetByID(author.AuthorID);
-                    authors.LastOrDefault().Add(auth.Name);
+                   // var auth = unitOfWork.BooksAuthorRepository.GetByID(author.AuthorName);
+                    authors.LastOrDefault().Add(author.AuthorName);
                 }
             }
             int i = 0;
@@ -40,6 +40,14 @@ namespace LibraryServiceLayer.Services
                 Author = authors.ElementAt(i++)
             });
             return temp;
+        }
+        public void AddBook(Book book, IEnumerable<BooksAuthor> booksAuthor)
+        {
+            foreach (var auth in booksAuthor) {
+                unitOfWork.BooksAuthorRepository.Insert(auth);
+            }
+            unitOfWork.BookRepository.Insert(book);
+            unitOfWork.Save();                
         }
     }
 }

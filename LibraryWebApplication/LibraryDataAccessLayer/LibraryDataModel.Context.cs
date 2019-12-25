@@ -27,7 +27,6 @@ namespace LibraryDataAccessLayer
         }
     
         public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BooksAtLibrary> BooksAtLibraries { get; set; }
         public virtual DbSet<BooksAuthor> BooksAuthors { get; set; }

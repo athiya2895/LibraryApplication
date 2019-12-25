@@ -85,9 +85,6 @@
     <Compile Include="Address.cs">
       <DependentUpon>LibraryDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Author.cs">
-      <DependentUpon>LibraryDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Book.cs">
       <DependentUpon>LibraryDataModel.tt</DependentUpon>
     </Compile>

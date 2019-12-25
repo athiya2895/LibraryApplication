@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DBBook } from '../../CustomClasses/Book';
+import { DBBook } from '../../CustomClasses/DBBook';
 @Pipe({
   name: 'genre'
 })

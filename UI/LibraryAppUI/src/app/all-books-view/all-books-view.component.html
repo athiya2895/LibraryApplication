@@ -23,10 +23,10 @@
         <mat-grid-tile *ngFor="let books of allBooks | genre: selectGenre | filter: searchBook">
             <mat-card class="example-card mat-elevation-z6">
                 <mat-card-header>
-                    <mat-card-title (click)="describeBook(books)" class="header">{{ books.book.title }}</mat-card-title>
+                    <mat-card-title (click)="describeBook(books)" class="header">{{ books.Title }}</mat-card-title>
                     <button *ngIf = "isAdmin" class = "btn btn-primary-outline" (click)="deleteBook(books)"><i class="fa fa-trash" style="font-size:24px"></i></button>
                 </mat-card-header>
-                <img mat-card-image (click)="describeBook(books)" [src]="books.book.ImageLink" height="300px;" alt="{{ books.Title }}">
+                <img mat-card-image (click)="describeBook(books)" [src]="books.ImageLinks[0]" height="300px;" alt="{{ books.Title }}">
                 <mat-card-content (click)="describeBook(books)">
                     <b *ngFor="let author of books.Author">{{author}}  </b>
                     <star-rating-comp *ngIf="books.AverageRating"

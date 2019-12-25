@@ -12,35 +12,35 @@
     <div *ngIf="book && !done" class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-2"> 
-            <img class="img-responsive" [src]="book.imageLinks.thumbnail">
+            <img class="img-responsive" [src]="book.ImageLinks[1]">
         </div>
         <div class="col-md-8">
             <table class="table table-striped">
                 <tr>
                     <td>ISBN</td> 
-                    <td class="text-primary">{{book.id}}</td>
+                    <td class="text-primary">{{book.ISBN}}</td>
                 </tr>
                 <tr>
                     <td>TITLE</td>    
-                    <td class="text-primary">{{book.title}}</td>
+                    <td class="text-primary">{{book.Title}}</td>
                 </tr>
                 <tr>
                     <td>AUTHORS</td>
                     <td>
                     <ul>
-                        <li *ngFor="let author of book.authors" class="text-primary">{{author}}</li>
+                        <li *ngFor="let author of book.Authors" class="text-primary">{{author}}</li>
                     </ul>
                     </td>
                 </tr>
                 <tr>
                     <td>DESCRIPTION</td>  
-                    <td class="text-primary" [innerHTML]="book.description"></td>
+                    <td class="text-primary" [innerHTML]="book.Description"></td>
                 </tr>
                 <tr>
                     <td>GENRE</td>
                     <td>
                     <ul>
-                        <li *ngFor="let category of book.categories" class="text-primary">{{category}}</li>
+                        <li *ngFor="let category of book.Categories" class="text-primary">{{category}}</li>
                     </ul>
                     </td>
                 </tr>
@@ -51,7 +51,7 @@
                 </td>
             </tr>
             </table>
-            <button class="btn btn-primary" (click)="addNewBook()">Add Book</button>
+            <button class="btn btn-primary" (click)="addBook()">Add Book</button>
         </div>
         <hr>
     </div>

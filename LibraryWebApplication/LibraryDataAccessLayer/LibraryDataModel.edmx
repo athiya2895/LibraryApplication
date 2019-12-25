@@ -16,13 +16,6 @@
           <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Pincode" Type="char" MaxLength="7" Nullable="false" />
         </EntityType>
-        <EntityType Name="Author">
-          <Key>
-            <PropertyRef Name="AuthorID" />
-          </Key>
-          <Property Name="AuthorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="ISBN" />
@@ -52,10 +45,10 @@
         <EntityType Name="BooksAuthors">
           <Key>
             <PropertyRef Name="ISBN" />
-            <PropertyRef Name="AuthorID" />
+            <PropertyRef Name="AuthorName" />
           </Key>
           <Property Name="ISBN" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="AuthorName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AuthorOrdinal" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="BookTransactions">
@@ -159,18 +152,6 @@
             </Principal>
             <Dependent Role="BooksAtLibrary">
               <PropertyRef Name="LibraryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BooksAuthors_Author">
-          <End Role="Author" Type="Self.Author" Multiplicity="1" />
-          <End Role="BooksAuthors" Type="Self.BooksAuthors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Author">
-              <PropertyRef Name="AuthorID" />
-            </Principal>
-            <Dependent Role="BooksAuthors">
-              <PropertyRef Name="AuthorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -320,7 +301,6 @@
         </Association>
         <EntityContainer Name="LibraryDBModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BooksAtLibrary" EntityType="Self.BooksAtLibrary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BooksAuthors" EntityType="Self.BooksAuthors" Schema="dbo" store:Type="Tables" />
@@ -339,10 +319,6 @@
           <AssociationSet Name="FK_BooksAtLibrary_Library" Association="Self.FK_BooksAtLibrary_Library">
             <End Role="Library" EntitySet="Library" />
             <End Role="BooksAtLibrary" EntitySet="BooksAtLibrary" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BooksAuthors_Author" Association="Self.FK_BooksAuthors_Author">
-            <End Role="Author" EntitySet="Author" />
-            <End Role="BooksAuthors" EntitySet="BooksAuthors" />
           </AssociationSet>
           <AssociationSet Name="FK_BooksAuthors_Book" Association="Self.FK_BooksAuthors_Book">
             <End Role="Book" EntitySet="Book" />
@@ -409,14 +385,6 @@
           <Property Name="Pincode" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Libraries" Relationship="Self.FK_Library_Address" FromRole="Address" ToRole="Library" />
         </EntityType>
-        <EntityType Name="Author">
-          <Key>
-            <PropertyRef Name="AuthorID" />
-          </Key>
-          <Property Name="AuthorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BooksAuthors" Relationship="Self.FK_BooksAuthors_Author" FromRole="Author" ToRole="BooksAuthors" />
-        </EntityType>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="ISBN" />
@@ -451,13 +419,12 @@
         <EntityType Name="BooksAuthor">
           <Key>
             <PropertyRef Name="ISBN" />
-            <PropertyRef Name="AuthorID" />
+            <PropertyRef Name="AuthorName" />
           </Key>
           <Property Name="ISBN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="AuthorID" Type="Int32" Nullable="false" />
           <Property Name="AuthorOrdinal" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Author" Relationship="Self.FK_BooksAuthors_Author" FromRole="BooksAuthors" ToRole="Author" />
           <NavigationProperty Name="Book" Relationship="Self.FK_BooksAuthors_Book" FromRole="BooksAuthors" ToRole="Book" />
+          <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="BookTransaction">
           <Key>
@@ -569,18 +536,6 @@
             </Principal>
             <Dependent Role="Library">
               <PropertyRef Name="AddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BooksAuthors_Author">
-          <End Role="Author" Type="Self.Author" Multiplicity="1" />
-          <End Role="BooksAuthors" Type="Self.BooksAuthor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Author">
-              <PropertyRef Name="AuthorID" />
-            </Principal>
-            <Dependent Role="BooksAuthors">
-              <PropertyRef Name="AuthorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -742,7 +697,6 @@
         </Association>
         <EntityContainer Name="LibraryDBEntitiesContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
-          <EntitySet Name="Authors" EntityType="Self.Author" />
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="BooksAtLibraries" EntityType="Self.BooksAtLibrary" />
           <EntitySet Name="BooksAuthors" EntityType="Self.BooksAuthor" />
@@ -757,10 +711,6 @@
           <AssociationSet Name="FK_Library_Address" Association="Self.FK_Library_Address">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="Library" EntitySet="Libraries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BooksAuthors_Author" Association="Self.FK_BooksAuthors_Author">
-            <End Role="Author" EntitySet="Authors" />
-            <End Role="BooksAuthors" EntitySet="BooksAuthors" />
           </AssociationSet>
           <AssociationSet Name="FK_BooksAtLibrary_Book" Association="Self.FK_BooksAtLibrary_Book">
             <End Role="Book" EntitySet="Books" />
@@ -833,14 +783,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Authors">
-            <EntityTypeMapping TypeName="LibraryDBModel.Author">
-              <MappingFragment StoreEntitySet="Author">
-                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LibraryDBModel.Book">
               <MappingFragment StoreEntitySet="Book">
@@ -871,8 +813,8 @@
           <EntitySetMapping Name="BooksAuthors">
             <EntityTypeMapping TypeName="LibraryDBModel.BooksAuthor">
               <MappingFragment StoreEntitySet="BooksAuthors">
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
                 <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
                 <ScalarProperty Name="AuthorOrdinal" ColumnName="AuthorOrdinal" />
               </MappingFragment>
             </EntityTypeMapping>

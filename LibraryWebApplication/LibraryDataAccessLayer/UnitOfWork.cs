@@ -13,7 +13,6 @@ namespace LibraryDataAccessLayer
         private GenericRepository<Customer> customerRepository;
         private GenericRepository<UserLogin> userRepository;
         private GenericRepository<Address> addressRepository;
-        private GenericRepository<Author> authorRepository;
         private GenericRepository<Book> bookRepository;
         private GenericRepository<BooksAtLibrary> booksAtLibraryRepository;
         private GenericRepository<BooksAuthor> booksAuthorRepository;
@@ -61,20 +60,7 @@ namespace LibraryDataAccessLayer
                 }
                 return addressRepository;
             }
-        }
-
-        public GenericRepository<Author> AuthorRepository
-        {
-            get
-            {
-
-                if (this.authorRepository == null)
-                {
-                    this.authorRepository = new GenericRepository<Author>(context);
-                }
-                return authorRepository;
-            }
-        }
+        }        
 
         public GenericRepository<Book> BookRepository
         {

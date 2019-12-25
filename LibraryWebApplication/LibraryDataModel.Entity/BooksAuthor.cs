@@ -15,10 +15,9 @@ namespace LibraryDataModel.Entity
     public partial class BooksAuthor
     {
         public string ISBN { get; set; }
-        public int AuthorID { get; set; }
+        //public int AuthorID { get; set; }
+        public string AuthorName { get; set; }
         public int AuthorOrdinal { get; set; }
-    
-        public virtual Author Author { get; set; }
         public virtual Book Book { get; set; }
     }
 }
