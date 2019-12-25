@@ -80,7 +80,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookService.cs" />
-    <Compile Include="UserAuthentication.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\UserAuthentication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -97,7 +98,7 @@
       <Name>LibraryDataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryDataModel.Entity\LibraryDataModel.Entity.csproj">
-      <Project>{7803803f-adc8-4fb1-93a4-7e04b093d77a}</Project>
+      <Project>{314e2a93-ce49-45a4-83df-c2c41941394d}</Project>
       <Name>LibraryDataModel.Entity</Name>
     </ProjectReference>
   </ItemGroup>

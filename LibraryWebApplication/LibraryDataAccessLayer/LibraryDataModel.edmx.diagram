@@ -4,33 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7ddc746c3a3845eb986325c1eae50030" Name="Diagram1">
-        <EntityTypeShape EntityType="LibraryDBModel.Address" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.Author" Width="1.5" PointX="8.25" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.Book" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.BooksAtLibrary" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.BooksAuthor" Width="1.5" PointX="10.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.BookTransaction" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.Customer" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.CustomerMemberShip" Width="1.5" PointX="10.5" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.Librarian" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.Library" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.MemberShip" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.MemberShipType" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.UserLogin" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+      <Diagram DiagramId="643a585478794ac99fa3454eb25e1157" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="LibraryDBModel.Address" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Author" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Book" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BooksAtLibrary" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BooksAuthor" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BookTransaction" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Customer" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.CustomerMemberShip" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Librarian" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Library" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.MemberShip" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.MemberShipType" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="LibraryDBModel.FK_Library_Address" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BooksAuthors_Author" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BooksAtLibrary_Book" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BooksAuthors_Book" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BookTransactions_Book" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BooksAtLibrary_Library" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_BookTransactions_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_BookTransactions_Librarian" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryDBModel.FK_BookTransactions_MemberShip" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryDBModel.FK_Customer_UserLogin" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryDBModel.FK_CustomerMemberShip_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_CustomerMemberShip_MemberShip" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_Librarian_Library" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryDBModel.FK_Librarian_UserLogin" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_MemberShip_Library" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_MemberShip_MemberShipType" ManuallyRouted="false" />
       </Diagram>

@@ -26,9 +26,13 @@ export class SignupComponent implements OnInit {
     const password = form.value.password;
     const firstName = form.value.firstName;
     const lastName = form.value.lastName;
+    const sex = form.value.sex;
+    const address = form.value.address;
+    const dob = form.value.dateOfBirth;
+    const phoneNumber = form.value.phoneNumber;
     var name = firstName + lastName;
     this.user = new User('user', email, password);
-    this.customer = new Customer(email,name,'Male','blore',new Date,'1234');
+    this.customer = new Customer(email,name, sex,address,dob,phoneNumber);
     this.auth.postUser(this.user).subscribe();
     // this.loggedInUser.insertUser(this.user);
     console.log(this.user);

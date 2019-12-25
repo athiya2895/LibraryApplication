@@ -23,7 +23,7 @@ namespace LibraryServiceLayer.Services
                     authors.LastOrDefault().Add(auth.Name);
                 }
             }
-            int i = 0;
+            //int i = 0;
             var temp = books.Select(book => new Book() {
                 Title = book.Title,
                 RatingsCount = book.RatingsCount,
@@ -37,7 +37,7 @@ namespace LibraryServiceLayer.Services
                 Description = book.Description,
                 Categories = book.Categories,
                 AverageRating = book.AverageRating,
-                Author = authors.ElementAt(i++)
+                //Author = authors.ElementAt(i++)
             });
             return temp;
         }

@@ -11,7 +11,7 @@ namespace LibraryDataAccessLayer
         private LibraryDBEntitiesContext context = new LibraryDBEntitiesContext();
 
         private GenericRepository<Customer> customerRepository;
-        private GenericRepository<UserLogin> userRepository;
+        //private GenericRepository<UserLogin> userRepository;
         private GenericRepository<Address> addressRepository;
         private GenericRepository<Author> authorRepository;
         private GenericRepository<Book> bookRepository;
@@ -37,7 +37,7 @@ namespace LibraryDataAccessLayer
             }
         }
 
-        public GenericRepository<UserLogin> UserRepository
+        /*public GenericRepository<UserLogin> UserRepository
         {
             get
             {
@@ -49,7 +49,7 @@ namespace LibraryDataAccessLayer
                 return userRepository;
             }
         }
-
+        */
         public GenericRepository<Address> AddressRepository
         {
             get

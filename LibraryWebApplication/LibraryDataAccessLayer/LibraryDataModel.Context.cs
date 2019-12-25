@@ -7,9 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LibraryDataAccessLayer
+namespace LibraryDataModel.Entity
 {
-    using LibraryDataModel.Entity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -38,6 +37,5 @@ namespace LibraryDataAccessLayer
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<MemberShip> MemberShips { get; set; }
         public virtual DbSet<MemberShipType> MemberShipTypes { get; set; }
-        public virtual DbSet<UserLogin> UserLogins { get; set; }
     }
 }

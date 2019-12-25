@@ -10,7 +10,8 @@ namespace LibraryServiceLayer
     public class UserAuthentication
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
-        public void PostUser(UserLogin user)
+        
+        /*public void PostUser(UserLogin user)
         {
             unitOfWork.UserRepository.Insert(user);
             unitOfWork.Save();
@@ -19,6 +20,8 @@ namespace LibraryServiceLayer
         }
         public void PostCustomer(Customer customer)
         {
+            unitOfWork.CustomerRepository.Insert(customer);
+            unitOfWork.Save();
             //LibraryDataAccessLayer.UserAuthentication auth = new LibraryDataAccessLayer.UserAuthentication();
             //auth.PostCustomer(customer);
         }
@@ -28,6 +31,6 @@ namespace LibraryServiceLayer
             //unitOfWork.Save();
             //LibraryDataAccessLayer.UserAuthentication auth = new LibraryDataAccessLayer.UserAuthentication();
             //auth.PostUser(user);
-        }
+        }*/
     }
 }
