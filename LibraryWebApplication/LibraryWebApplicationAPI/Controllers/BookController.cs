@@ -32,7 +32,7 @@ namespace LibraryWebApplicationAPI.Controllers
                 Categories = book.Categories.Split(','),
                 AverageRating = book.AverageRating,
                 Author = book.Author,
-                noOfCopies = 0
+                noOfCopies = book.noOfCopies
             });
             return temp;
         }

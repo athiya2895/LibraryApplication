@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container"> 
   <div class="row" style="margin-left:30%">
-      <h3>{{book.title}}</h3>
+      <h3>{{book.Title}}</h3>
   </div>
 </div>
 
@@ -9,10 +9,10 @@
 <div class="container"> 
   <div *ngIf="book" class="row">
     <div class="col-md-4"> 
-      <img class="img-responsive" height="auto" width="auto" [src]="book.imageLinks.small"><br><br>
-      <star-rating-comp *ngIf="book.averageRating"
+      <img class="img-responsive" height="auto" width="auto" [src]="book.ImageLinks[1]"><br><br>
+      <star-rating-comp *ngIf="book.AverageRating"
         [starType]="'svg'" 
-        [rating]="book.averageRating"
+        [rating]="book.AverageRating"
         [showHalfStars]="true"
         [readOnly]= "true">
       </star-rating-comp>
@@ -21,25 +21,25 @@
         <table class="table">
             <tr>
                 <td>ISBN</td> 
-                <td class="text-primary">{{book.id}}</td>
+                <td class="text-primary">{{book.ISBN}}</td>
             </tr>
             <tr>
                 <td>AUTHORS</td>
                 <td>
                   <ul>
-                    <li *ngFor="let author of book.authors" class="text-primary">{{author}}</li>
+                    <li *ngFor="let author of book.Author" class="text-primary">{{author}}</li>
                   </ul>
                 </td>
             </tr>
             <tr>
                 <td>DESCRIPTION</td>  
-                <td class="text-primary text-size" [innerHTML]="book.description"></td>
+                <td class="text-primary text-size" [innerHTML]="book.Description"></td>
             </tr>
             <tr>
                 <td>GENRE</td>
                 <td>
                   <ul>
-                    <li *ngFor="let category of book.categories" class="text-primary">{{category}}</li>
+                    <li *ngFor="let category of book.Categories" class="text-primary">{{category}}</li>
                   </ul>
                 </td>
             </tr>

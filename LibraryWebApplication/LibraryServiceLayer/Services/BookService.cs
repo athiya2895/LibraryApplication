@@ -14,8 +14,10 @@ namespace LibraryServiceLayer.Services
         {
             var books = unitOfWork.BookRepository.Get();
             List<List<string>> authors = new List<List<string>>();
+            //List<int> noOfBooks = new List<int>();
             foreach(var book in books)
             {
+               // noOfBooks.Add(unitOfWork.BooksAtLibraryRepository.GetByID(book.ISBN).NumberOfCopies);
                 authors.Add(new List<string>());
                 foreach(var author in book.BooksAuthors)
                 {
@@ -37,7 +39,8 @@ namespace LibraryServiceLayer.Services
                 Description = book.Description,
                 Categories = book.Categories,
                 AverageRating = book.AverageRating,
-                Author = authors.ElementAt(i++)
+                Author = authors.ElementAt(i++),
+                noOfCopies = book.BooksAtLibraries.FirstOrDefault().NumberOfCopies
             });
             return temp;
         }

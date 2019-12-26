@@ -19,7 +19,7 @@ export class DBBook {
                 _ratingsCount: number, _noOfCopies: number,
                 _imageLinks: {
                      thumbnail: string,
-                 //    small: string,
+                     small: string,
                      medium: string
                    //  large: string
                 }) {
@@ -32,8 +32,9 @@ export class DBBook {
                     this.Description = _description;
                     this.Categories = _categories;
                     this.RatingsCount = _ratingsCount;                    
-                    this.ImageLink = _imageLinks.medium+","+_imageLinks.thumbnail;
+                    this.ImageLink = _imageLinks.medium+","+_imageLinks.small;
                     this.ImageLinks = this.ImageLink.split(',');
+                    this.ImageLinks[2] = _imageLinks.thumbnail;
                     this.noOfCopies = _noOfCopies;
 
     }

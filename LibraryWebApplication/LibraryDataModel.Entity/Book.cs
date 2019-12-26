@@ -33,6 +33,7 @@ namespace LibraryDataModel.Entity
         public bool IsAvailable { get; set; }
         public string Description { get; set; }
         public List<string> Author { get; set; }
+        public int noOfCopies { get; set; }
         public Nullable<double> AverageRating { get; set; }
         public Nullable<int> RatingsCount { get; set; }
     

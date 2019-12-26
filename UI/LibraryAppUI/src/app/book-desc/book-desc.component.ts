@@ -16,7 +16,7 @@ export class BookDescComponent implements OnInit {
     //private bookService: BookService,
     private dialog: MatDialog) { }
   id: string;
-  dbbook: DBBook = null;
+  book: DBBook = null;
   //book: Book = null;
   isAdmin = false;
   //dbuser: DBUser = JSON.parse(localStorage.getItem('user'));
@@ -31,7 +31,7 @@ export class BookDescComponent implements OnInit {
     this.renewed = false;
     this.inEdit = false;
     this.id = this.route.snapshot.paramMap.get('id');
-    this.dbbook = JSON.parse(localStorage.getItem('BookDesc'));
+    this.book = JSON.parse(localStorage.getItem('BookDesc'));
     //this.book = this.dbbook.book;
     // if (this.dbuser.user.issuedBooks !== undefined) {
     // if (this.dbuser.user.issuedBooks.length === 3) {
@@ -97,16 +97,16 @@ export class BookDescComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
         this.returned = false;
         this.rating = res;
-        const avg = this.dbbook.AverageRating;
+        const avg = this.book.AverageRating;
         if (avg === NaN) {
-          this.dbbook.AverageRating = this.rating;
-          this.dbbook.RatingsCount = 1;
+          this.book.AverageRating = this.rating;
+          this.book.RatingsCount = 1;
         } else {
-          const count = this.dbbook.RatingsCount;
-          this.dbbook.AverageRating = ((avg * count) + this.rating) / (count + 1);
-          this.dbbook.RatingsCount = this.dbbook.RatingsCount + 1;
+          const count = this.book.RatingsCount;
+          this.book.AverageRating = ((avg * count) + this.rating) / (count + 1);
+          this.book.RatingsCount = this.book.RatingsCount + 1;
         }
-        localStorage.setItem('BookDesc', JSON.stringify(this.dbbook));
+        localStorage.setItem('BookDesc', JSON.stringify(this.book));
         //this.bookService.updateBook(this.dbbook.id, this.dbbook.book).subscribe();
       });
     }
