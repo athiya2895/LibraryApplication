@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/Services/AuthService.service';
 })
 export class SignupComponent implements OnInit {
   user: User = new User('', '','');
-  customer: Customer = new Customer('','','','',new Date,'');
+  customer: Customer = new Customer('','','','',new Date,'','');
   constructor(private router: Router,private auth: AuthService) { }
 
   ngOnInit() {
@@ -31,11 +31,11 @@ export class SignupComponent implements OnInit {
     const dob = form.value.dateOfBirth;
     const phoneNumber = form.value.phoneNumber;
     var name = firstName + lastName;
-    this.user = new User('user', email, password);
-    this.customer = new Customer(email,name, sex,address,dob,phoneNumber);
-    this.auth.postUser(this.user).subscribe();
+    //this.user = new User('user', email, password);
+    this.customer = new Customer(email,name, sex,address,dob,phoneNumber,password);
+    this.auth.postUser(this.customer).subscribe();
     // this.loggedInUser.insertUser(this.user);
-    console.log(this.user);
+    console.log(this.customer);
     this.router.navigate(['']);
   }
 }
