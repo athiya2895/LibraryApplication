@@ -45,6 +45,7 @@
         <AssociationConnector Association="LibraryDBModel.FK_MemberShip_Library" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_MemberShip_MemberShipType" ManuallyRouted="false" />
       </Diagram>
+        <EntityTypeShape EntityType="LibraryDBModel.sysdiagram" Width="1.5" PointX="10.3591954421062" PointY="3.3584901259087445" />
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

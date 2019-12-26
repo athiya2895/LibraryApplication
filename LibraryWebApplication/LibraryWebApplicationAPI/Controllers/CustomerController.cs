@@ -2,15 +2,18 @@
 using LibraryServiceLayer;
 using LibraryServiceLayer.Services;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace LibraryWebApplicationAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CustomerController : ApiController
     {
         CustomerService customerService = new CustomerService();
@@ -45,7 +48,8 @@ namespace LibraryWebApplicationAPI.Controllers
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public IHttpActionResult PostCustomer(Customer customer)
+        [HttpPost]
+        public IHttpActionResult PostCustomer([FromBody]Customer customer)
         {
             customer = customerService.InsertCustomer(customer);
             return Ok(customer);
