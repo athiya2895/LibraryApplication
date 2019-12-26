@@ -1,4 +1,7 @@
-﻿using LibraryServiceLayer;
+﻿using LibraryDataModel.Entity;
+using LibraryServiceLayer;
+using LibraryServiceLayer.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +13,68 @@ namespace LibraryWebApplicationAPI.Controllers
 {
     public class CustomerController : ApiController
     {
-        // POST api/values
-        //public void Post([FromBody]Customer value)
-        //{
-        //    LibraryServiceLayer.UserAuthentication userAuthentication = new LibraryServiceLayer.UserAuthentication();
-        //    userAuthentication.PostCustomer(value);
-        //}
+        CustomerService customerService = new CustomerService();
+
+        /// <summary>
+        /// Method to retrieve details of all customers
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult GetAllCustomers()
+        {
+            IEnumerable<Customer> customers =  customerService.GetAllCustomers();
+            return Ok(customers);
+        }
+
+        /// <summary>
+        /// Method to retrieve a customer details
+        /// </summary>
+        /// <param name="custID"></param>
+        /// <returns></returns>
+        public IHttpActionResult GetCustomer(int custID)
+        {
+            Customer customer = customerService.GetCustomer(custID);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+            return Ok(customer);
+        }
+
+        /// <summary>
+        /// Method to insert new customer
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        public IHttpActionResult PostCustomer(Customer customer)
+        {
+            customer = customerService.InsertCustomer(customer);
+            return Ok(customer);
+        }
+
+        /// <summary>
+        /// Method to edit customer details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        public IHttpActionResult PutCustomer(int id, Customer customer)
+        {
+            customer = customerService.EditCustomer(id, customer);
+            return Ok(customer);
+        }
+
+        /// <summary>
+        /// Method to delete customer details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IHttpActionResult DeleteCustomer(int id)
+        {
+            bool result = customerService.DeleteCustomer(id);
+            if (result) return Ok();
+            else return BadRequest();
+
+        }
 
     }
 }

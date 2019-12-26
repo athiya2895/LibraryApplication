@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
-import AllBooks from 'D:/Git/Projects/LibraryApplication/UI/LibraryAppUI/src/assets/books.json'
+//import AllBooks from 'D:/LibraryApplication/UI/LibraryAppUI/src/assets/books.json'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { DBBook } from '../CustomClasses/DBBook';
@@ -18,7 +18,7 @@ export class BookService {
         //user.Role = 'user';
         return this.http.get<DBBook[]>(this.url);
     }
-    public getAllBooks()  {
-        return AllBooks;
-    }
+    // public getAllBooks()  {
+    //     return AllBooks;
+    // }
 }

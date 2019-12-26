@@ -12,21 +12,18 @@ namespace LibraryDataModel.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Librarian
+    public partial class Author
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Librarian()
+        public Author()
         {
-            this.BookTransactions = new HashSet<BookTransaction>();
+            this.BooksAuthors = new HashSet<BooksAuthor>();
         }
     
-        public int LibrarianID { get; set; }
+        public int AuthorID { get; set; }
         public string Name { get; set; }
-        public string Designation { get; set; }
-        public int LibraryID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookTransaction> BookTransactions { get; set; }
-        public virtual Library Library { get; set; }
+        public virtual ICollection<BooksAuthor> BooksAuthors { get; set; }
     }
 }

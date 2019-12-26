@@ -45,7 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -82,6 +82,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryDataModel.edmx</DependentUpon>
       <LastGenOutput>LibraryDataModel.Context.cs</LastGenOutput>
+      <CustomToolNamespace>LibraryDataModel.Entity</CustomToolNamespace>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -121,7 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryDataModel.Entity\LibraryDataModel.Entity.csproj">
-      <Project>{7803803f-adc8-4fb1-93a4-7e04b093d77a}</Project>
+      <Project>{314e2a93-ce49-45a4-83df-c2c41941394d}</Project>
       <Name>LibraryDataModel.Entity</Name>
     </ProjectReference>
   </ItemGroup>

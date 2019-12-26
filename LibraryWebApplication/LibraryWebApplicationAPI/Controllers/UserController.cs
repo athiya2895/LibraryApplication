@@ -15,7 +15,7 @@ namespace LibraryWebApplicationAPI.Controllers
     public class UserController : ApiController
     {
         //private UnitOfWork unitOfWork = new UnitOfWork();
-        public void Post([FromBody]UserLogin value)        
+        /*public void Post([FromBody]UserLogin value)        
         {
             //unitOfWork.CourseRepository.Insert(value);
             UserAuthentication userAuthentication = new UserAuthentication();
@@ -25,6 +25,6 @@ namespace LibraryWebApplicationAPI.Controllers
         {
             UserAuthentication userAuthentication = new UserAuthentication();
             return JsonConvert.SerializeObject(userAuthentication.GetUsers());
-        }
+        }*/
     }
 }

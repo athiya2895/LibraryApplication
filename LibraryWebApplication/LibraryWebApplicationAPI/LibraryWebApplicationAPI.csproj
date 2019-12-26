@@ -219,7 +219,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BookTransactionController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\UserAuthenticationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -312,7 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryDataModel.Entity\LibraryDataModel.Entity.csproj">
-      <Project>{7803803f-adc8-4fb1-93a4-7e04b093d77a}</Project>
+      <Project>{314e2a93-ce49-45a4-83df-c2c41941394d}</Project>
       <Name>LibraryDataModel.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryServiceLayer\LibraryServiceLayer.csproj">
