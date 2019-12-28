@@ -18,6 +18,7 @@ namespace LibraryDataModel.Entity
         public string ISBN { get; set; }
         public int LibrarianID { get; set; }
         public System.DateTime BorrowedDate { get; set; }
+        public System.DateTime ReturnDate { get; set; }
         public System.DateTime DueDate { get; set; }
         public string Status { get; set; }
         public decimal FineAmount { get; set; }

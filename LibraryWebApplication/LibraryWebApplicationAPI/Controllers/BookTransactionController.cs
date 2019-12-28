@@ -1,37 +1,60 @@
 ﻿using LibraryDataModel.Entity;
+using LibraryServiceLayer.Services;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace LibraryWebApplicationAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BookTransactionController : ApiController
     {
+        const string BOOK_NOT_AVAILABLE = "Book not available";
+        const string ISSUED_STATUS = "Issued";
+
+        TransactionService transactionService = new TransactionService();
+
+        /// <summary>
+        /// Method to handle issue books
+        /// </summary>
+        /// <param name="transaction"></param>
         [HttpPost]
-        public void PostBook([FromBody]JObject transaction)
+        public IHttpActionResult PostBook([FromBody]JObject transaction)
         {
-            Console.WriteLine(transaction.ToString());
-            // var temp = book.Value<JArray>("Categories");
-            //string categories = string.Join(",", book.Value<JArray>("Categories"));
-            var newBook = new BookTransaction()
+            var issueTransaction = new BookTransaction()
             {
                 ISBN = transaction.Value<string>("ISBN"),
-                BorrowedDate = transaction.Value<DateTime>("BorrowedDate"),
-                DueDate = transaction.Value<DateTime>("DueDate"),
-                CustomerId = 1,
-                LibrarianID = 1,
-                Status = transaction.Value<string>("Status"),
-                FineAmount = transaction.Value<decimal>("FineAmount")                
+                BorrowedDate = DateTime.Now,
+                DueDate = DateTime.Now.AddDays(15),
+                CustomerId = transaction.Value<int>("CustomerId"),
+                LibrarianID = transaction.Value<int>("LibrarianId"),
+                Status = ISSUED_STATUS,
+                FineAmount = 0
             };
-            //var authors = book.Value<JArray>("Author");
-            //int i = 1;
-            //var Authors = authors.Select(auth => new BooksAuthor() { AuthorName = auth.ToString(), AuthorOrdinal = i++, ISBN = newBook.ISBN });
+            bool isIssued = transactionService.IssueBook(issueTransaction);
+            if (isIssued)
+            {
+                return Ok(issueTransaction);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, BOOK_NOT_AVAILABLE);
+            }
+        }
 
-            //bookService.AddBook(newBook, Authors);
+        /// <summary>
+        /// Method to handle return
+        /// </summary>
+        /// <param name="book"></param>
+        [HttpPut]
+        public void PutBook([FromBody]JObject transaction)
+        {
+            int customerId = transaction.Value<int>("CustomerId");
+            string ISBN = transaction.Value<string>("ISBN");
+
+            transactionService.ReturnBook(customerId, ISBN);
         }
     }
 }
