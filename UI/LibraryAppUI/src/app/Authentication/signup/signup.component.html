@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="row" style="margin-top: 30px;">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <div class="container">
@@ -57,10 +58,10 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-4">
-                            <label class="radio-inline"><input type="radio" id="sex" value="Female">Female</label>
+                            <label class="radio-inline"><input type="radio" id="Female" value="F" [(ngModel)]="gender" name="Sex">Female</label>
                         </div>
                         <div class="col-sm-4">
-                            <label class="radio-inline"><input type="radio" id="sex" value="Male">Male</label>
+                            <label class="radio-inline"><input type="radio" id="Male" value="M" [(ngModel)]="gender" name="Sex">Male</label>
                         </div>
                     </div>
                 </div>

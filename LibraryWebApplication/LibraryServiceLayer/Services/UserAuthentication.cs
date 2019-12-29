@@ -24,13 +24,14 @@ namespace LibraryServiceLayer
             unitOfWork.Save();
             //LibraryDataAccessLayer.UserAuthentication auth = new LibraryDataAccessLayer.UserAuthentication();
             //auth.PostCustomer(customer);
-        }
-        public IEnumerable<UserLogin> GetUsers()
+        }*/
+        public Customer GetUser(string userName, string pwd)
         {
-            return unitOfWork.UserRepository.Get();
+            var users = unitOfWork.CustomerRepository.Get();
+            return users.Where(u => u.Email == userName && u.Password == pwd).FirstOrDefault();
             //unitOfWork.Save();
             //LibraryDataAccessLayer.UserAuthentication auth = new LibraryDataAccessLayer.UserAuthentication();
             //auth.PostUser(user);
-        }*/
+        }
     }
 }

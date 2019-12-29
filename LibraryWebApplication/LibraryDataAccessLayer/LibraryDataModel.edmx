@@ -74,8 +74,9 @@
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" Nullable="false" />
           <Property Name="PhoneNumber" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="CustomerMemberShip">
           <Key>
@@ -122,16 +123,6 @@
           <Property Name="MemberShipType" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="MembershipCharge" Type="money" Nullable="false" />
           <Property Name="MaxBookLimit" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_BooksAtLibrary_Book">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
@@ -277,7 +268,6 @@
           <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberShip" EntityType="Self.MemberShip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberShipType" EntityType="Self.MemberShipType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BooksAtLibrary_Book" Association="Self.FK_BooksAtLibrary_Book">
             <End Role="Book" EntitySet="Book" />
             <End Role="BooksAtLibrary" EntitySet="BooksAtLibrary" />
@@ -406,9 +396,10 @@
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BookTransactions" Relationship="Self.FK_BookTransactions_Customer" FromRole="Customer" ToRole="BookTransactions" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CustomerMemberShip">
           <Key>
@@ -655,18 +646,7 @@
             <End Role="MemberShipType" EntitySet="MemberShipTypes" />
             <End Role="MemberShip" EntitySet="MemberShips" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="LibraryDBModel.sysdiagram" />
         </EntityContainer>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -738,6 +718,7 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="LibraryDBModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
@@ -796,17 +777,6 @@
                 <ScalarProperty Name="MemberShipType1" ColumnName="MemberShipType" />
                 <ScalarProperty Name="MembershipCharge" ColumnName="MembershipCharge" />
                 <ScalarProperty Name="MaxBookLimit" ColumnName="MaxBookLimit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="LibraryDBModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

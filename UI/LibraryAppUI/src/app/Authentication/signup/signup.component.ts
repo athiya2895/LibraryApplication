@@ -15,13 +15,15 @@ import { AuthService } from 'src/app/Services/AuthService.service';
 })
 export class SignupComponent implements OnInit {
   user: User = new User('', '','');
-  customer: Customer = new Customer('','','','',new Date,'','');
+  customer: Customer = new Customer('','','','',new Date,'','','');
+  gender: string = '';
   constructor(private router: Router,private auth: AuthService) { }
 
   ngOnInit() {
   }
 
   onSignup(form: NgForm) {
+    console.log(form.value);
     const email = form.value.email;
     const password = form.value.password;
     const firstName = form.value.firstName;
@@ -32,7 +34,7 @@ export class SignupComponent implements OnInit {
     const phoneNumber = form.value.phoneNumber;
     var name = firstName + lastName;
     //this.user = new User('user', email, password);
-    this.customer = new Customer(email,name, sex,address,dob,phoneNumber,password);
+    this.customer = new Customer(email,name, this.gender,address,dob,phoneNumber,password,'User');
     this.auth.postUser(this.customer).subscribe();
     // this.loggedInUser.insertUser(this.user);
     console.log(this.customer);

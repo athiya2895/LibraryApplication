@@ -23,7 +23,7 @@ export class AllBooksViewComponent implements OnInit {
   dbBook: DBBook = null;
   allBooks: DBBook[] = new Array<DBBook>();
   selectGenre = '';
-  isAdmin = false;
+  isAdmin = true;
   deleteSure = false;
   data;
   async ngOnInit() {
