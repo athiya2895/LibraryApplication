@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './Authentication/signin/signin.component';
 import { SignupComponent } from './Authentication/signup/signup.component';
 import { AuthService } from './Services/AuthService.service';
+import { Transaction } from './Services/Transaction.service';
 
 //import { StarRatingModule } from 'angular-star-rating';
 
@@ -53,7 +54,8 @@ import { AuthService } from './Services/AuthService.service';
   providers: [
     BookService,
     ISBNBookService,
-    AuthService
+    AuthService,
+    Transaction
   ],
   bootstrap: [AppComponent],
   entryComponents: [ RateBookDialogBoxComponent ]

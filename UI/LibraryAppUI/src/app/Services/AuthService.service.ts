@@ -19,15 +19,15 @@ export class AuthService {
             // return data;
         });
     }
-    public Login(login: any): Observable<any> {
+    public Login(login: any): Observable<Customer> {
         console.log('api call login');
         console.log(login);
         //user.Role = 'user';
         return this.http.post(this.url+'UserAuthentication',login).map((res: any) => {
             console.log('resut');
             console.log(res);
-            // const data = res;
-            // return data;
+            const data = res;
+            return data;
         });
     }
 }

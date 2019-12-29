@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/Services/AuthService.service';
-import { Customer } from 'src/app/CustomClasses/Customer';
+import { AuthService } from '../../Services/AuthService.service';
+import { Customer } from '../../CustomClasses/Customer';
 
 //import { AuthService } from '../auth.service';
 
@@ -22,11 +22,12 @@ export class SigninComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.login = new Login(email,password);
-    this.auth.Login(this.login).subscribe(res =>{ this.customer = res as Customer;
+    this.auth.Login(this.login).subscribe((res: Customer) =>{ this.customer = res;
         console.log(res.CustomerID);
+        localStorage.setItem('login', JSON.stringify(this.customer));
       }
     );
-    localStorage.setItem('userName', email);
+    
   }
 }
 export class Login{

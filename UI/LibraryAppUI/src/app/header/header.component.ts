@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Customer } from '../CustomClasses/Customer';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,17 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   userName: string;
+  customer: Customer;
  // user: DBUser = JSON.parse(localStorage.getItem('user'));
   constructor(private router: Router) { }
   isAdmin = false;
   async ngOnInit() {
     // this.adalService.getUser().subscribe(res => this.userName = res.profile.given_name);
-    this.userName = localStorage.getItem('userName');
-    this.userName = "User";
+    this.customer = JSON.parse(localStorage.getItem('login'));
+    if(this.customer != undefined)
+      this.userName = this.customer.Name;
+    else
+      this.userName = "User";
     // if (await this.guard.canActivate()) {
     //   this.isAdmin = true;
     // }

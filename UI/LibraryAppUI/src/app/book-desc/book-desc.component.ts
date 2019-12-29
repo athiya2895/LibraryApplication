@@ -3,7 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 //import { Book } from '../CustomClasses/Book';
 import { DBBook } from '../CustomClasses/DBBook';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 import { RatingChangeEvent } from 'angular-star-rating';
+import { BookTransaction } from '../CustomClasses/BookTransaction';
+import { Transaction } from '../Services/Transaction.service';
+import { Customer } from '../CustomClasses/Customer';
 
 @Component({
   selector: 'app-book-desc',
@@ -11,10 +15,11 @@ import { RatingChangeEvent } from 'angular-star-rating';
   styleUrls: ['./book-desc.component.css']
 })
 export class BookDescComponent implements OnInit {
-
+  bookTransaction: BookTransaction = new BookTransaction('','','');
   constructor(private route: ActivatedRoute,
-    //private bookService: BookService,
+    private router: Router, private transactionService: Transaction,
     private dialog: MatDialog) { }
+  customer: Customer = new Customer('','','','',new Date(),'','','');
   id: string;
   book: DBBook = null;
   //book: Book = null;
@@ -28,6 +33,7 @@ export class BookDescComponent implements OnInit {
   renewed = false;
   limitReached = false;
   async ngOnInit() {
+    this.customer = JSON.parse(localStorage.getItem('login'));
     this.renewed = false;
     this.inEdit = false;
     this.id = this.route.snapshot.paramMap.get('id');
@@ -51,11 +57,25 @@ export class BookDescComponent implements OnInit {
 // }
   }
   IssueBook() {
+    console.log('Issue book clicked');
     this.returned = false;
     this.issued = true;
     const date = new Date();
     const due = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5);
-    // const issuedBook = new IssuedBook(this.dbbook.id, date, due);
+
+    const ISBN = this.book.ISBN;
+    const LibrarianId = "1";
+    var CustomerId = '11';
+    if(this.customer.Email != '')
+      console.log("Login first");
+    else 
+      CustomerId = this.customer.CustomerID.toString();
+    console.log('Issue book clicked2');
+    this.bookTransaction = new BookTransaction(ISBN, LibrarianId, CustomerId);
+    console.log(this.bookTransaction);
+    this.transactionService.issueBook(this.bookTransaction).subscribe();
+    //console.log(this.bookTransaction);
+    //const issuedBook = new IssuedBook(this.dbbook.id, date, due);
     // if (this.dbuser.user.issuedBooks === undefined) {
     // this.dbuser.user.issuedBooks = new Array<IssuedBook>();
     // }
