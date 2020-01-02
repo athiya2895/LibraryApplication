@@ -28,9 +28,10 @@ export class AllBooksViewComponent implements OnInit {
   data;
   async ngOnInit() {
     // if (await this.gaurd.canActivate()) {
-    // this.isAdmin = true;
+     this.isAdmin = true;
     // }
    // this.books = new Array<Book>();
+
      this.bookservice.getBooks().subscribe(res =>
      {
        console.log(res);

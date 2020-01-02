@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/addBook']);
   }
   viewProfile() {
-    //this.router.navigate(['/profile']);
+    this.router.navigate(['/profile']);
   }
   viewAllDetails() {
     //this.router.navigate(['/allUserDetails']);

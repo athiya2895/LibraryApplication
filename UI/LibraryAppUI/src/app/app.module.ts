@@ -25,6 +25,9 @@ import { SigninComponent } from './Authentication/signin/signin.component';
 import { SignupComponent } from './Authentication/signup/signup.component';
 import { AuthService } from './Services/AuthService.service';
 import { Transaction } from './Services/Transaction.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminGaurd } from './Services/Authentication/admin-guard';
+import { AuthGuard } from './Services/Authentication/auth-guard.service';
 
 //import { StarRatingModule } from 'angular-star-rating';
 
@@ -39,7 +42,8 @@ import { Transaction } from './Services/Transaction.service';
     AddNewBookComponent,
     RateBookDialogBoxComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,9 @@ import { Transaction } from './Services/Transaction.service';
     BookService,
     ISBNBookService,
     AuthService,
-    Transaction
+    Transaction,
+    AdminGaurd,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [ RateBookDialogBoxComponent ]
