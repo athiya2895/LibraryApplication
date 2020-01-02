@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
+    role: boolean;
     constructor(public http: HttpClient) {}
     url = 'https://localhost:44330/api/';
     public postUser(customer: Customer) {
@@ -27,7 +28,11 @@ export class AuthService {
             console.log('resut');
             console.log(res);
             const data = res;
+            this.role = true;
             return data;
         });
+    }
+    isAuthenticated() {
+        return this.role;
     }
 }

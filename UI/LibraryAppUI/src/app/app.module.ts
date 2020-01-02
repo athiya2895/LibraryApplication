@@ -26,6 +26,10 @@ import { SignupComponent } from './Authentication/signup/signup.component';
 import { AuthService } from './Services/AuthService.service';
 import { Transaction } from './Services/Transaction.service';
 import { HomePageComponent } from './home-page/home-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminGaurd } from './Services/Authentication/admin-guard';
+import { AuthGuard } from './Services/Authentication/auth-guard.service';
+import { AdminUserViewComponent } from './admin-user-view/admin-user-view.component';
 
 //import { StarRatingModule } from 'angular-star-rating';
 
@@ -41,7 +45,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     RateBookDialogBoxComponent,
     SigninComponent,
     SignupComponent,
-    HomePageComponent
+    HomePageComponent,
+    UserProfileComponent,
+    AdminUserViewComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     BookService,
     ISBNBookService,
     AuthService,
-    Transaction
+    Transaction,
+    AdminGaurd,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [ RateBookDialogBoxComponent ]
