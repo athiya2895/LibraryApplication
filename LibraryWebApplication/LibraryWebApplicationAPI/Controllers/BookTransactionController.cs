@@ -11,8 +11,10 @@ namespace LibraryWebApplicationAPI.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BookTransactionController : ApiController
     {
+        #region constants
         const string BOOK_NOT_AVAILABLE = "Book not available";
         const string ISSUED_STATUS = "Issued";
+        #endregion
 
         TransactionService transactionService = new TransactionService();
 
@@ -49,12 +51,25 @@ namespace LibraryWebApplicationAPI.Controllers
         /// </summary>
         /// <param name="book"></param>
         [HttpPut]
-        public void PutBook([FromBody]JObject transaction)
+        public void ReturnBook([FromBody]JObject transaction)
         {
             int customerId = transaction.Value<int>("CustomerId");
             string ISBN = transaction.Value<string>("ISBN");
 
             transactionService.ReturnBook(customerId, ISBN);
+        }
+
+        /// <summary>
+        /// Method to handle renew book
+        /// </summary>
+        /// <param name="transaction"></param>
+        [HttpPut]
+        public void RenewBook([FromBody]JObject transaction)
+        {
+            int customerId = transaction.Value<int>("CustomerId");
+            string ISBN = transaction.Value<string>("ISBN");
+
+            transactionService.RenewBook(customerId, ISBN);
         }
     }
 }
