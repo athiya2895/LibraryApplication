@@ -33,6 +33,7 @@ export class BookDescComponent implements OnInit {
   renewed = false;
   limitReached = false;
   async ngOnInit() {
+    console.log(this.isAdmin);
     this.customer = JSON.parse(localStorage.getItem('login'));
     this.renewed = false;
     this.inEdit = false;

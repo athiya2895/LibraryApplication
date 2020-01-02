@@ -31,7 +31,7 @@ export class AllBooksViewComponent implements OnInit {
      this.isAdmin = true;
     // }
    // this.books = new Array<Book>();
-
+    console.log(this.isAdmin);
      this.bookservice.getBooks().subscribe(res =>
      {
        console.log(res);
