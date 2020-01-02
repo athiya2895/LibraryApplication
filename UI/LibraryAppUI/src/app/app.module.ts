@@ -25,6 +25,7 @@ import { SigninComponent } from './Authentication/signin/signin.component';
 import { SignupComponent } from './Authentication/signup/signup.component';
 import { AuthService } from './Services/AuthService.service';
 import { Transaction } from './Services/Transaction.service';
+import { HomePageComponent } from './home-page/home-page.component';
 
 //import { StarRatingModule } from 'angular-star-rating';
 
@@ -39,7 +40,8 @@ import { Transaction } from './Services/Transaction.service';
     AddNewBookComponent,
     RateBookDialogBoxComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
