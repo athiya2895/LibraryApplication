@@ -9,6 +9,11 @@ namespace LibraryServiceLayer.Services
 {
     public class BookService
     {
+        const string ISSUED_STATUS = "Issued";
+        const string BOOK_NOT_EXIST = "Book with this ISBN doesn't exist";
+        const string BOOK_IS_ISSUED = "Book cannot be deleted since it is issued by a customer";
+        const string DELETE_SUCCESSFUL = "Book deleted successfully";
+
         UnitOfWork unitOfWork = new UnitOfWork();
         public IEnumerable<Book> GetBooks()
         {
@@ -51,6 +56,36 @@ namespace LibraryServiceLayer.Services
             }
             unitOfWork.BookRepository.Insert(book);
             unitOfWork.Save();                
+        }
+
+        /// <summary>
+        /// Method to delete book
+        /// </summary>
+        /// <param name="ISBN"></param>
+        public string DeleteBook(string ISBN)
+        {
+            //Check if the book exists
+            Book book = unitOfWork.BookRepository.GetByID(ISBN);
+            if (book != null)
+            {
+                //Verify if the book is issued to any customer. If no, proceed
+                IEnumerable<BookTransaction> bookTransactions = unitOfWork.BookTransactionRepository.Get();
+                var transactionRow = bookTransactions.Where(x => x.ISBN == ISBN && x.Status == ISSUED_STATUS).FirstOrDefault(); //Its sufficient to check if one transaction exists
+
+                if (transactionRow == null)
+                {
+                    //Delete book
+                    unitOfWork.BookRepository.Delete(ISBN);
+                    unitOfWork.Save();
+                    return DELETE_SUCCESSFUL;
+                }
+                else
+                {
+                    return BOOK_IS_ISSUED;
+                }
+            }
+            else
+                return BOOK_NOT_EXIST;
         }
     }
 }

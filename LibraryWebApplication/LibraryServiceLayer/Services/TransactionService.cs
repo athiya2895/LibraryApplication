@@ -10,6 +10,7 @@ namespace LibraryServiceLayer.Services
     public class TransactionService
     {
         const int FINE_PER_DAY = 10;
+        const string RENEWED_STATUS = "Renewed";
         const string RETURN_STATUS = "Returned";
         UnitOfWork unitOfWork = new UnitOfWork();
 
@@ -93,6 +94,32 @@ namespace LibraryServiceLayer.Services
                 //ToDO:: Need to check how to handle exception
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Method to renew book by 15 days
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="ISBN"></param>
+        public void RenewBook(int customerId, string ISBN) {
+            //Check if the transaction exists for customer
+            IEnumerable<BookTransaction> bookTransactions = unitOfWork.BookTransactionRepository.Get();
+            var transactionRow = bookTransactions.Where(x => x.CustomerId == customerId && x.ISBN == ISBN).FirstOrDefault();
+
+            //Check if fine amount is applicable, update it. Set 10Rs. per day.
+            if (transactionRow!=null && DateTime.Now > transactionRow.DueDate)
+            {
+                transactionRow.FineAmount = (((TimeSpan)(DateTime.Now - transactionRow.DueDate)).Days) * FINE_PER_DAY;
+            }
+
+            //Extend due date by 15 days
+            transactionRow.DueDate = DateTime.Now.AddDays(15);
+
+            //Update status to renewed
+            transactionRow.Status = RENEWED_STATUS;
+
+            unitOfWork.BookTransactionRepository.Update(transactionRow);
+            unitOfWork.Save();
         }
     }
 }

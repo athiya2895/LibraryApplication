@@ -15,6 +15,10 @@ namespace LibraryWebApplicationAPI.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BookController : ApiController
     {
+        const string BOOK_NOT_EXIST = "Book with this ISBN doesn't exist";
+        const string BOOK_IS_ISSUED = "Book cannot be deleted since it is issued by a customer";
+        const string DELETE_SUCCESSFUL = "Book deleted successfully";
+
         BookService bookService = new BookService();
  
         public IEnumerable<object> GetAllBooks()
@@ -60,6 +64,25 @@ namespace LibraryWebApplicationAPI.Controllers
             var Authors = authors.Select(auth => new BooksAuthor() { AuthorName = auth.ToString(), AuthorOrdinal = i++, ISBN = newBook.ISBN });
             
             bookService.AddBook(newBook, Authors);
+        }
+
+        /// <summary>
+        /// Action to delete book
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
+        public IHttpActionResult DeleteBook([FromBody]JObject book)
+        {
+            var ISBN = book.Value<string>("ISBN");
+            string message = bookService.DeleteBook(ISBN);
+            if (message == DELETE_SUCCESSFUL)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, message);
+            }
         }
     }
 }

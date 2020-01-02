@@ -1,8 +1,11 @@
 <nav class="navbar margin-down bg-dark navbar-dark">
     <div class="navbar-header">
-            <a class="navbar-brand" routerLink="/home">ATL</a>
+            <a class="navbar-brand" routerLink="/home">Library Made Easy</a>
     </div> 
+    
     <div class="nav navbar-right">
+        <div> <button class="btn btn-primary btn-style" >Sign Up</button> </div>       
+        <div><button class="btn btn-primary btn-style" >Login</button></div>
         <button mat-button [matMenuTriggerFor]="menu" class="btn btn-primary btn-style" >Welcome {{userName}}</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="viewAllDetails()">View User List</button>

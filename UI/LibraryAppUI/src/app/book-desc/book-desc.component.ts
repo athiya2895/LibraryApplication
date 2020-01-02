@@ -24,7 +24,7 @@ export class BookDescComponent implements OnInit {
   book: DBBook = null;
   //book: Book = null;
   isAdmin = false;
-  //dbuser: DBUser = JSON.parse(localStorage.getItem('user'));
+  //dbuser: Customer = JSON.parse(localStorage.getItem('login'));
   issued = false;
   inEdit = false;
   copies = 0;
@@ -60,13 +60,14 @@ export class BookDescComponent implements OnInit {
     console.log('Issue book clicked');
     this.returned = false;
     this.issued = true;
-    const date = new Date();
-    const due = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5);
+    //const date = new Date();
+    //const due = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5);
 
     const ISBN = this.book.ISBN;
     const LibrarianId = "1";
     var CustomerId = '11';
-    if(this.customer.Email != '')
+    
+    if(this.customer == null)
       console.log("Login first");
     else 
       CustomerId = this.customer.CustomerID.toString();
@@ -89,6 +90,18 @@ export class BookDescComponent implements OnInit {
     this.limitReached = false;
     this.returned = true;
     this.issued = false;
+
+    const ISBN = this.book.ISBN;
+    const LibrarianId = "1";
+    var CustomerId = '11';
+    if(this.customer == null)
+      console.log("Login first");
+    else 
+      CustomerId = this.customer.CustomerID.toString();
+    console.log('Return book clicked');
+    this.bookTransaction = new BookTransaction(ISBN, LibrarianId, CustomerId);
+    console.log(this.bookTransaction);
+    this.transactionService.returnBook(this.bookTransaction).subscribe();
     // this.dbuser.user.issuedBooks = this.dbuser.user.issuedBooks.filter(book => book.isbn !== this.dbbook.id);
     // localStorage.setItem('user', JSON.stringify(this.dbuser));
     // this.dbbook.book.noOfCopies = this.dbbook.book.noOfCopies + 1;
@@ -96,6 +109,17 @@ export class BookDescComponent implements OnInit {
     // this.userService.updateUser(this.dbuser.id, this.dbuser.user).subscribe();
   }
   RenewBook() {
+    const ISBN = this.book.ISBN;
+    const LibrarianId = "1";
+    var CustomerId = '11';
+    if(this.customer == null)
+      console.log("Login first");
+    else 
+      CustomerId = this.customer.CustomerID.toString();
+    console.log('Renew book clicked');
+    this.bookTransaction = new BookTransaction(ISBN, LibrarianId, CustomerId);
+    console.log(this.bookTransaction);
+    this.transactionService.renewBook(this.bookTransaction).subscribe();
     // const renewIndex = this.dbuser.user.issuedBooks.findIndex(book => book.isbn === this.dbbook.id);
     // const due = new Date(this.dbuser.user.issuedBooks[renewIndex].dueOn);
     // this.dbuser.user.issuedBooks[renewIndex].dueOn = new Date(due.getFullYear(), due.getMonth(), due.getDate() + 5);
