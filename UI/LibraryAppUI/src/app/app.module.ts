@@ -28,6 +28,7 @@ import { Transaction } from './Services/Transaction.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AdminGaurd } from './Services/Authentication/admin-guard';
 import { AuthGuard } from './Services/Authentication/auth-guard.service';
+import { AdminUserViewComponent } from './admin-user-view/admin-user-view.component';
 
 //import { StarRatingModule } from 'angular-star-rating';
 
@@ -43,7 +44,8 @@ import { AuthGuard } from './Services/Authentication/auth-guard.service';
     RateBookDialogBoxComponent,
     SigninComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AdminUserViewComponent
   ],
   imports: [
     BrowserModule,
