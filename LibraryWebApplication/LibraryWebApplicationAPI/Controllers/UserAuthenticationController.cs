@@ -31,7 +31,6 @@ namespace LibraryWebApplicationAPI.Controllers
                 Name = user.Name,
                 PhoneNumber = user.PhoneNumber,
                 Password = "",
-                Role = user.Role,
                 Sex = user.Sex                
             };
         }

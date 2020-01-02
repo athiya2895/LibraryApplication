@@ -75,9 +75,8 @@
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" Nullable="false" />
           <Property Name="PhoneNumber" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
-          <Property Name="Role" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="CustomerMemberShip">
           <Key>
@@ -398,10 +397,9 @@
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BookTransactions" Relationship="Self.FK_BookTransactions_Customer" FromRole="Customer" ToRole="BookTransactions" />
-          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CustomerMemberShip">
           <Key>
@@ -721,7 +719,6 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="LibraryDBModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
