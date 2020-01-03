@@ -25,6 +25,7 @@ import { SigninComponent } from './Authentication/signin/signin.component';
 import { SignupComponent } from './Authentication/signup/signup.component';
 import { AuthService } from './Services/AuthService.service';
 import { Transaction } from './Services/Transaction.service';
+import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AdminGaurd } from './Services/Authentication/admin-guard';
 import { AuthGuard } from './Services/Authentication/auth-guard.service';
@@ -44,6 +45,7 @@ import { AdminUserViewComponent } from './admin-user-view/admin-user-view.compon
     RateBookDialogBoxComponent,
     SigninComponent,
     SignupComponent,
+    HomePageComponent,
     UserProfileComponent,
     AdminUserViewComponent
   ],

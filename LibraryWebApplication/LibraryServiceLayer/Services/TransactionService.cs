@@ -12,7 +12,24 @@ namespace LibraryServiceLayer.Services
         const int FINE_PER_DAY = 10;
         const string RENEWED_STATUS = "Renewed";
         const string RETURN_STATUS = "Returned";
+        const string ISSUED_STATUS = "Issued";
         UnitOfWork unitOfWork = new UnitOfWork();
+
+        /// <summary>
+        /// Get transaction details of a customer
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        public IEnumerable<BookTransaction> GetTransactionDetails(string email)
+        {
+            Customer customer = unitOfWork.CustomerRepository.Get().Where(x=>x.Email == email).FirstOrDefault();
+            
+            //Get transaction details of a customer
+            IEnumerable<BookTransaction> bookTransactions = unitOfWork.BookTransactionRepository.Get();
+            var transactionRows = bookTransactions.Where(x => x.CustomerId == customer.CustomerID && x.Status == ISSUED_STATUS).ToList();
+            
+            return transactionRows;
+        }
 
         /// <summary>
         /// Method to issue book to customer

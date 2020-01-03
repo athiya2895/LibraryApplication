@@ -16,7 +16,7 @@ namespace LibraryWebApplicationAPI.Controllers
     public class UserAuthenticationController : ApiController
     {
         UserAuthentication authService = new UserAuthentication();
-        [HttpGet]
+        [HttpPost]
         public object ValidateCustomer([FromBody]JObject customer)
         {
             string userName = customer.Value<string>("userName");
@@ -31,7 +31,6 @@ namespace LibraryWebApplicationAPI.Controllers
                 Name = user.Name,
                 PhoneNumber = user.PhoneNumber,
                 Password = "",
-                Role = user.Role,
                 Sex = user.Sex                
             };
         }

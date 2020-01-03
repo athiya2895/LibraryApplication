@@ -1,8 +1,105 @@
 <app-header></app-header>
-<div class="row" style="margin-top: 30px;">
+<div class="card m-3">
+    <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-5">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-5">
+                    <label>Date of Birth</label>
+                    <input type="date" formControlName="birthDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }">
+                    <div *ngIf="submitted && f.birthDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.birthDate.errors.required">Birth Date is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Phone number</label>
+                    <input type="phoneNumber" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNumber.errors.required">phoneNumber is required</div>
+                        <div *ngIf="f.phoneNumber.errors.minlength">Phone number has to have 10 digits</div>
+                        <div *ngIf="f.phoneNumber.errors.maxlength">Phone number can have max 12 digits</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Address</label>
+              <textarea formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" ></textarea>
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required">address is required</div>
+               </div>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="radio-inline"><input type="radio" id="Female" value="F" formControlName="gender" name="gender">Female</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline"><input type="radio" id="Male" value="M" formControlName="gender" name="gender">Male</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Confirm Password</label>
+                    <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!--<div class="container" style="padding-top:60px;"> 
+<div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <div class="container">
-        <form class="form-horizontal" role="form" (ngSubmit)="onSignup(f)" #f="ngForm">
+        <div class="card-group">  
+            <div class="card p-4">  
+              <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <h2>User Registration</h2>
             <div class="form-group">
                 <label for="firstName" class="col-sm-3 control-label">First Name</label>
@@ -65,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- /.form-group -->
+            </div> form-group
             <div class="form-group">
                 <div class="col-sm-9 col-sm-offset-3">
                     <span class="help-block">*Required fields</span>
@@ -74,9 +171,12 @@
 
             <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Register</button>
             
-        </form> <!-- /form -->
-    </div> <!-- ./container -->
+        </form>  /form 
+    </div>  ./container 
     </div>
   </div>
+</div>  
+</div>  
+</div>-->
   
   
