@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Customer } from '../CustomClasses/Customer';
+import { AuthService } from '../Services/AuthService.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   userName: string;
   customer: Customer;
  // user: DBUser = JSON.parse(localStorage.getItem('user'));
-  constructor(private router: Router) { }
+  constructor(private router: Router,private authService: AuthService) { }
   isAdmin = false;
   async ngOnInit() {
     // this.adalService.getUser().subscribe(res => this.userName = res.profile.given_name);
@@ -26,7 +27,8 @@ export class HeaderComponent implements OnInit {
     // }
   }
   onLogout() {
-    //this.authService.logout();
+    this.authService.logout();
+    this.router.navigate(['']);
   }
   // logout() {
   //   localStorage.setItem('user', null);

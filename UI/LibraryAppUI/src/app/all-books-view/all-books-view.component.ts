@@ -48,16 +48,23 @@ export class AllBooksViewComponent implements OnInit {
   }
   deleteBook(deletedBook: DBBook) {
     this.deleteSure = false;
-    // const dialogRef = this.dialog.open(DeleteDialogBoxComponent, {
-    // width: '250px'
-    // });
-    // dialogRef.afterClosed().subscribe(res => {
-    // this.deleteSure = res;
-    // if (this.deleteSure) {
-    // this.allBooks = this.allBooks.filter(book => book.id !== deletedBook.id);
-    // // this.bookservice.deleteBook(deletedBook.id).then();
-    // }
-    // });
+    const dialogRef = this.dialog.open(DeleteDialogBoxComponent, {
+    width: '250px'
+    });
+    dialogRef.afterClosed().subscribe(res => {
+    this.deleteSure = res;
+    if (this.deleteSure) {
+      console.log(this.deleteSure);
+      console.log(deletedBook);
+    //this.allBooks = this.allBooks.filter(book => book.id !== deletedBook.id);
+     this.bookservice.deleteBook(deletedBook.ISBN).subscribe(
+      () => {
+        //this.done = true;
+        console.log(true);
+      }
+    );;//.then();
+    }
+    });
   }
   onResize(event) {
     const element = event.target.innerWidth;
@@ -72,3 +79,8 @@ export class AllBooksViewComponent implements OnInit {
     }
   }
 }
+@Component({
+  selector: 'app-delete-book-dialog',
+  templateUrl: './deleteBook/delete-book-dialog.html',
+})
+export class DeleteDialogBoxComponent {}

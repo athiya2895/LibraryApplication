@@ -20,7 +20,7 @@ namespace LibraryWebApplicationAPI.Controllers
         const string DELETE_SUCCESSFUL = "Book deleted successfully";
 
         BookService bookService = new BookService();
- 
+
         public IEnumerable<object> GetAllBooks()
         {
             IEnumerable<Book> books = bookService.GetBooks();
@@ -44,7 +44,7 @@ namespace LibraryWebApplicationAPI.Controllers
         public void PostBook([FromBody]JObject book)
         {
             Console.WriteLine(book.ToString());
-           // var temp = book.Value<JArray>("Categories");
+            // var temp = book.Value<JArray>("Categories");
             string categories = string.Join(",", book.Value<JArray>("Categories"));
             var newBook = new Book()
             {
@@ -57,12 +57,12 @@ namespace LibraryWebApplicationAPI.Controllers
                 AverageRating = book.Value<double>("AverageRating"),
                 RatingsCount = book.Value<int>("RatingsCount"),
                 PublishedDate = book.Value<DateTime>("PublishedDate"),
-                Categories = categories           
+                Categories = categories
             };
             var authors = book.Value<JArray>("Author");
             int i = 1;
             var Authors = authors.Select(auth => new BooksAuthor() { AuthorName = auth.ToString(), AuthorOrdinal = i++, ISBN = newBook.ISBN });
-            
+
             bookService.AddBook(newBook, Authors);
         }
 
@@ -71,18 +71,19 @@ namespace LibraryWebApplicationAPI.Controllers
         /// </summary>
         /// <param name="book"></param>
         /// <returns></returns>
-        public IHttpActionResult DeleteBook([FromBody]JObject book)
+        [HttpDelete]
+        public void Delete(int ISBN)
         {
-            var ISBN = book.Value<string>("ISBN");
-            string message = bookService.DeleteBook(ISBN);
-            if (message == DELETE_SUCCESSFUL)
-            {
-                return Ok();
-            }
-            else
-            {
-                return Content(HttpStatusCode.NotFound, message);
-            }
+            ///var ISBN = book.Value<string>("ISBN");
+           // string message = bookService.DeleteBook(ISBN);
+            //if (message == DELETE_SUCCESSFUL)
+            //{
+            //    return Ok();
+            //}
+            //else
+            //{
+            //    return Content(HttpStatusCode.NotFound, message);
+            //}
         }
     }
 }

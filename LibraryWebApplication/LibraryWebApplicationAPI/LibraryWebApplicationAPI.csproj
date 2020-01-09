@@ -221,6 +221,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookTransactionController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DeleteController.cs" />
     <Compile Include="Controllers\UserAuthenticationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">

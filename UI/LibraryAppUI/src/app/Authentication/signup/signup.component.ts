@@ -29,36 +29,13 @@ export class SignupComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
         birthDate: [null, Validators.required],
-        phoneNumber: ['', Validators.required, Validators.minLength(10), Validators.maxLength(12)],
+        phoneNumber: ['', Validators.required],
         address: ['', Validators.required],
         gender: ['male',Validators.required]
     }, {
         validator: MustMatch('password', 'confirmPassword')
     });
 }
-
-  onSignup(form: NgForm) {
-    console.log(form.value);
-    const email = form.value.email;
-    const password = form.value.password;
-    const firstName = form.value.firstName;
-    const lastName = form.value.lastName;
-    const sex = form.value.sex;
-    const address = form.value.address;
-    const dob = form.value.dateOfBirth;
-    const phoneNumber = form.value.phoneNumber;
-    var name = firstName + lastName;
-    //this.user = new User('user', email, password);
-    this.customer = new Customer(email,name, this.gender,address,dob,phoneNumber,password,'User');
-    this.auth.postUser(this.customer).subscribe();
-    // this.loggedInUser.insertUser(this.user);
-    console.log(this.customer);
-    this.router.navigate(['']);
-  }
-
-  
-
-
     
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
@@ -70,9 +47,23 @@ export class SignupComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
-
+        const email = this.registerForm.value.email;
+        const password = this.registerForm.value.password;
+        const firstName = this.registerForm.value.firstName;
+        const lastName = this.registerForm.value.lastName;
+        const sex = this.registerForm.value.gender;
+        const address = this.registerForm.value.address;
+        const dob = this.registerForm.value.dateOfBirth;
+        const phoneNumber = this.registerForm.value.phoneNumber;
+        var name = firstName + " " + lastName;
+        //this.user = new User('user', email, password);
+        this.customer = new Customer(email,name, sex,address,dob,phoneNumber,password,'User');
+        this.auth.postUser(this.customer).subscribe();
+        // this.loggedInUser.insertUser(this.user);
+        console.log(this.customer);
+        this.router.navigate(['']);
         // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value.firstName, null, 4));
+        //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     }
 
     onReset() {

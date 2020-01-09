@@ -16,6 +16,10 @@ namespace LibraryWebApplicationAPI
             config.EnableCors();
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.Routes.MapHttpRoute(
+                name: "WithActionApi",
+                routeTemplate: "api/{controller}/{action}/{customerID}"
+            );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

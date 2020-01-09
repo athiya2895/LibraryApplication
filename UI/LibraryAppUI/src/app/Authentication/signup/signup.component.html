@@ -1,17 +1,17 @@
 <app-header></app-header>
 <div class="card m-3">
-    <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+    <h5 class="card-header">Registration</h5>
     <div class="card-body">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
-                <div class="form-group col-5">
+                <div class="form-group col-6">
                     <label>First Name</label>
                     <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                         <div *ngIf="f.firstName.errors.required">First Name is required</div>
                     </div>
                 </div>
-                <div class="form-group col-5">
+                <div class="form-group col-6">
                     <label>Last Name</label>
                     <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                     <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
@@ -29,20 +29,18 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-5">
+                <div class="form-group col-6">
                     <label>Date of Birth</label>
                     <input type="date" formControlName="birthDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }">
                     <div *ngIf="submitted && f.birthDate.errors" class="invalid-feedback">
                         <div *ngIf="f.birthDate.errors.required">Birth Date is required</div>
                     </div>
                 </div>
-                <div class="form-group col-5">
+                <div class="form-group col-6">
                     <label>Phone number</label>
                     <input type="phoneNumber" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
                     <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
-                        <div *ngIf="f.phoneNumber.errors.required">phoneNumber is required</div>
-                        <div *ngIf="f.phoneNumber.errors.minlength">Phone number has to have 10 digits</div>
-                        <div *ngIf="f.phoneNumber.errors.maxlength">Phone number can have max 12 digits</div>
+                        <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
                     </div>
                 </div>
             </div>

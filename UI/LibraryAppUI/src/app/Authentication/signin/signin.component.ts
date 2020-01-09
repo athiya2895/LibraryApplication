@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../Services/AuthService.service';
 import { Customer } from '../../CustomClasses/Customer';
+import { Router } from '@angular/router';
 
 //import { AuthService } from '../auth.service';
 
@@ -13,7 +14,7 @@ import { Customer } from '../../CustomClasses/Customer';
 export class SigninComponent implements OnInit {
   login: Login;
   customer: Customer;
-  constructor(private auth: AuthService) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,7 @@ export class SigninComponent implements OnInit {
     this.auth.Login(this.login).subscribe((res: Customer) =>{ this.customer = res;
         console.log(res.CustomerID);
         localStorage.setItem('login', JSON.stringify(this.customer));
+        this.router.navigate(['allBooks']);
       }
     );
     

@@ -6,7 +6,7 @@ import { StarRatingModule } from 'angular-star-rating';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { AllBooksViewComponent } from './all-books-view/all-books-view.component';
+import { AllBooksViewComponent, DeleteDialogBoxComponent } from './all-books-view/all-books-view.component';
 import { AppRoutingModule } from './app_routing.component';
 import { HeaderComponent } from './header/header.component';
 import { AngularMaterialModule } from './app_material_imports.component';
@@ -47,7 +47,8 @@ import { AdminUserViewComponent } from './admin-user-view/admin-user-view.compon
     SignupComponent,
     HomePageComponent,
     UserProfileComponent,
-    AdminUserViewComponent
+    AdminUserViewComponent,
+    DeleteDialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +69,6 @@ import { AdminUserViewComponent } from './admin-user-view/admin-user-view.compon
     AuthGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ RateBookDialogBoxComponent ]
+  entryComponents: [ RateBookDialogBoxComponent, DeleteDialogBoxComponent ]
 })
 export class AppModule { }

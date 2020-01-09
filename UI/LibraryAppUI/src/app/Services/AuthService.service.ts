@@ -29,10 +29,16 @@ export class AuthService {
             console.log(res);
             const data = res;
             this.role = true;
+            localStorage.setItem('role', 'true');
             return data;
         });
     }
     isAuthenticated() {
+        this.role = JSON.parse(localStorage.getItem('role'));
         return this.role;
+    }
+    logout() {
+        localStorage.setItem('role','');
+        localStorage.setItem('login','');
     }
 }

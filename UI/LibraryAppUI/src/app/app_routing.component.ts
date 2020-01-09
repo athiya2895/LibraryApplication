@@ -11,14 +11,14 @@ import { AuthGuard } from './Services/Authentication/auth-guard.service';
 import { AdminGaurd } from './Services/Authentication/admin-guard';
 
 const routes = [
-    { path: '', component: AllBooksViewComponent, canActivate: [AuthGuard] },
-    { path: 'home', component: AllBooksViewComponent},//, canActivate: [AuthGuard]},
-    { path: 'bookdesc/:id', component: BookDescComponent},
+    { path: '', component:  HomePageComponent },
+    { path: 'home', component: HomePageComponent},//, canActivate: [AuthGuard]},
+    { path: 'allBooks', component: AllBooksViewComponent, canActivate: [AuthGuard]},
+    { path: 'bookdesc/:id', component: BookDescComponent,canActivate: [AuthGuard] },
     { path: 'signup', component: SignupComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'addBook', component: AddNewBookComponent, canActivate: [AdminGaurd]},
     { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard]},
-    { path: 'homePage', component: HomePageComponent}
   ];
 @NgModule({
     imports : [RouterModule.forRoot(routes)],
