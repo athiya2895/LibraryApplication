@@ -1,1 +1,25 @@
-<p>admin-user-view works!</p>
+<app-header></app-header>
+<div class="container">
+  <div *ngFor="let user of userData; let userIndex = index">
+    <strong class="text-primary">{{user.Name}}</strong>
+    <br>
+    <p  *ngIf="issuedBooks[userIndex].length === 0" class="text-danger">
+      This user does not have any issued books with them!
+    </p>
+    <table *ngIf="issuedBooks[userIndex].length !== 0" class="table table-striped">
+      <thead>
+        <td><strong>Index</strong></td>
+        <td><strong>Title</strong></td>
+        <td><strong>IssuedOn</strong></td>
+        <td><strong>Due On</strong></td>
+      </thead>
+      <tr *ngFor = "let book of issuedBooks[userIndex];let index=index;">
+        <td>{{index+1}}</td>
+        <td>{{book.title}}</td>
+        <td>{{userData[userIndex].user.issuedBooks[index].issuedOn | date}}</td>
+        <td>{{userData[userIndex].user.issuedBooks[index].dueOn | date}}</td>
+      </tr>
+    </table>
+    <hr>
+  </div>
+</div>

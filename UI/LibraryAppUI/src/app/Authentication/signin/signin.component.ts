@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   login: Login;
   customer: Customer;
+  error = false;
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
@@ -24,9 +25,17 @@ export class SigninComponent implements OnInit {
     const password = form.value.password;
     this.login = new Login(email,password);
     this.auth.Login(this.login).subscribe((res: Customer) =>{ this.customer = res;
+      console.log(res);
+      if(res === null){
+          console.log(res+"true");
+          this.error = true;
+      }
+      else{
         console.log(res.CustomerID);
         localStorage.setItem('login', JSON.stringify(this.customer));
         this.router.navigate(['allBooks']);
+      }
+        
       }
     );
     

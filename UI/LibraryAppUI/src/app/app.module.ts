@@ -14,6 +14,7 @@ import { BookDescComponent, RateBookDialogBoxComponent } from './book-desc/book-
 
 import { BookService } from './Services/books.service';
 import { ISBNBookService } from './Services/ISBNBookService.service'
+import { UserDataService } from './Services/UserDataService.service';
 
 import { FilterPipe} from './all-books-view/Filter/filter.pipe';
 import { GenrePipe } from './all-books-view/Filter/genre.pipe';
@@ -66,7 +67,8 @@ import { AdminUserViewComponent } from './admin-user-view/admin-user-view.compon
     AuthService,
     Transaction,
     AdminGaurd,
-    AuthGuard
+    AuthGuard,
+    UserDataService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ RateBookDialogBoxComponent, DeleteDialogBoxComponent ]

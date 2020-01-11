@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 //import AllBooks from 'D:/LibraryApplication/UI/LibraryAppUI/src/assets/books.json'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { DBBook } from '../CustomClasses/DBBook';
 
@@ -24,7 +24,9 @@ export class BookService {
   public deleteBook(ISBN: string) {
       console.log("{\"ISBN\":\""+ISBN+"\"}");
       //user.Role = 'user';
-      return this.http.post('https://localhost:44330/api/Delete',"{\"ISBN\":\""+ISBN+"\"}");
+      let headers = new HttpHeaders();
+      headers=headers.set('Content-Type','application/json');
+      return this.http.post('https://localhost:44330/api/Delete',"{\"ISBN\":\""+ISBN+"\"}",{headers:headers});
   }
   // public getAllBooks()  {
   //     return AllBooks;

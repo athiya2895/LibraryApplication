@@ -75,6 +75,7 @@ namespace LibraryServiceLayer.Services
                 if (transactionRow == null)
                 {
                     //Delete book
+                    //unitOfWork.BooksAuthorRepository.Delete(ISBN);
                     unitOfWork.BookRepository.Delete(ISBN);
                     unitOfWork.Save();
                     return DELETE_SUCCESSFUL;

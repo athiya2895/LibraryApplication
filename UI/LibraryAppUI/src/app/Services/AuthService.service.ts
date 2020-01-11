@@ -28,9 +28,14 @@ export class AuthService {
             console.log('resut');
             console.log(res);
             const data = res;
-            this.role = true;
-            localStorage.setItem('role', 'true');
-            return data;
+            if(data === null){
+                return null
+            }
+            else{
+                this.role = true;
+                localStorage.setItem('role', 'true');
+                return data;
+            }            
         });
     }
     isAuthenticated() {

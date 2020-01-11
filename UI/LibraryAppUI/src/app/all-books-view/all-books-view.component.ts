@@ -4,6 +4,9 @@ import { DBBook } from '../CustomClasses/DBBook';
 import { MatDialog } from '@angular/material';
 import { BookService } from '../Services/books.service';
 import { Router } from '@angular/router';
+import { Transaction } from '../Services/Transaction.service';
+import { User } from '../CustomClasses/User';
+import { Customer } from '../CustomClasses/Customer';
 
 @Component({
   selector: 'app-all-books-view',
@@ -14,7 +17,8 @@ export class AllBooksViewComponent implements OnInit {
 
   constructor(private router: Router,
     private bookservice: BookService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private transactionService: Transaction) { }
   rowNo = 3;
   //books: Book[] = new Array<Book>();
   searchBook = '';
@@ -34,10 +38,20 @@ export class AllBooksViewComponent implements OnInit {
     console.log(this.isAdmin);
      this.bookservice.getBooks().subscribe(res =>
      {
-       console.log(res);
-       this.allBooks = res;
-      console.log(this.allBooks);
-       });
+        console.log(res);
+        this.allBooks = res;
+        console.log(this.allBooks);
+        localStorage.setItem('books',JSON.stringify(this.allBooks));
+        this.transactionService.transactions(new User(user.Role,user.Email,user.Password)).subscribe(res =>
+        {
+           console.log(res);
+           //this.allBooks = res;
+           //console.log(this.allBooks);
+           //localStorage.setItem('books',JSON.stringify(this.allBooks));
+         });;
+      });
+      let user: Customer = JSON.parse(localStorage.getItem('login'));
+       
   }
   describeBook(dbbook: DBBook) {
     localStorage.setItem('BookDesc', JSON.stringify(dbbook));

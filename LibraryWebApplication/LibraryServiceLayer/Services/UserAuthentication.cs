@@ -28,7 +28,13 @@ namespace LibraryServiceLayer
         public Customer GetUser(string userName, string pwd)
         {
             var users = unitOfWork.CustomerRepository.Get();
-            return users.Where(u => u.Email == userName && u.Password == pwd).FirstOrDefault();
+            var user = users.Where(u => u.Email == userName && u.Password == pwd);
+            if (user == null)
+            {
+                return null;
+            }
+            return user.FirstOrDefault();
+               
             //unitOfWork.Save();
             //LibraryDataAccessLayer.UserAuthentication auth = new LibraryDataAccessLayer.UserAuthentication();
             //auth.PostUser(user);

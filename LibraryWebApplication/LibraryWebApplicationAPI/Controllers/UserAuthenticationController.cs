@@ -22,6 +22,10 @@ namespace LibraryWebApplicationAPI.Controllers
             string userName = customer.Value<string>("userName");
             string pwd = customer.Value<string>("password");
             var user = authService.GetUser(userName, pwd);
+            if (user == null)
+            {
+                return null;
+            }
             return new
             {
                 Address = user.Address,
@@ -31,7 +35,8 @@ namespace LibraryWebApplicationAPI.Controllers
                 Name = user.Name,
                 PhoneNumber = user.PhoneNumber,
                 Password = "",
-                Sex = user.Sex                
+                Sex = user.Sex,
+                Role = user.Role
             };
         }
        

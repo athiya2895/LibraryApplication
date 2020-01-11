@@ -24,6 +24,9 @@
         <div class="form-group">
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign In</button>
         <a routerLink="/signup" class="btn btn-link">Register</a>
+        <div *ngIf = "error === true" class="invalid-feedback">
+          <div *ngIf ="error === true">email or password invalid</div>
+        </div>
         </div>
       </form>
     </div>  

@@ -23,16 +23,16 @@ namespace LibraryWebApplicationAPI.Controllers
         /// </summary>
         /// <param name="customer"></param> 
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public object GetIssuedBookDetailsOfUser([FromBody]JObject customer)
         {
             List<object> list = new List<object>();
-            var email = customer.Value<string>("userName");
+            var email = customer.Value<string>("UserID");
 
             var issuedBooks = transactionService.GetTransactionDetails(email);
             foreach(var issuedBook in issuedBooks)
             {
-                list.Add(new { Title = issuedBook.Book.Title, IssuedOn = issuedBook.BorrowedDate, DueOn = issuedBook.DueDate });
+                list.Add(new { ISBN=issuedBook.Book.ISBN, title = issuedBook.Book.Title, IssuedOn = issuedBook.BorrowedDate, DueOn = issuedBook.DueDate });
             }
             return list;
         }

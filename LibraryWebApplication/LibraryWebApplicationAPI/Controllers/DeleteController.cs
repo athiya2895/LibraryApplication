@@ -26,19 +26,19 @@ namespace LibraryWebApplicationAPI.Controllers
         }
 
         // POST: api/Default
-        public void Post([FromBody]JObject value)
+        public string Post([FromBody]JObject value)
         {
             var ISBN = value.Value<string>("ISBN");
             BookService bookService = new BookService();
             string message = bookService.DeleteBook(ISBN);
-            //if (message == DELETE_SUCCESSFUL)
-            //{
-            //    return Ok();
-            //}
-            //else
-            //{
-            //    return Content(HttpStatusCode.NotFound, message);
-            //}
+            if (message == "DELETE_SUCCESSFUL")
+            {
+                return "ok";
+            }
+            else
+            {
+                return "not found";
+            }
         }
 
         // PUT: api/Default/5

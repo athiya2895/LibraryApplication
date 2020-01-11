@@ -5,6 +5,7 @@ import { Transaction } from '../Services/Transaction.service';
 import { DBBook } from '../CustomClasses/DBBook';
 //import { DBBook } from '../CustomClasses/DbBook';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Customer } from '../CustomClasses/Customer';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,7 +19,7 @@ export class UserProfileComponent implements OnInit {
   editing = false;
   profileForm: FormGroup;
   userData: User[] = new Array<User>();
-  dbuser: User;
+  dbuser: Customer = new Customer('','','','',null,'','','');
   issuedBooks: DBBook[] = new Array<DBBook>();
   dbbook: DBBook;
   constructor(//private userService: UserDataService, 
@@ -29,7 +30,7 @@ export class UserProfileComponent implements OnInit {
     if (this.url !== null) {
       this.uploadedPicture = true;
     }
-    this.dbuser = JSON.parse(localStorage.getItem('user'));
+    this.dbuser = JSON.parse(localStorage.getItem('login'));
     // for (const book of this.dbuser.issuedBooks) {
     //   this.bookService.getBook(book.isbn).then(res => {
     //     this.issuedBooks.push(res);
