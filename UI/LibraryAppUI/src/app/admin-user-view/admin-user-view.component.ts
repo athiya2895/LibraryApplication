@@ -4,6 +4,7 @@ import { User } from '../CustomClasses/User';
 import { UserDataService } from '../Services/UserDataService.service';
 import { Transaction } from '../Services/Transaction.service';
 import { Customer } from '../CustomClasses/Customer';
+import { BookTransaction } from '../CustomClasses/BookTransaction';
 
 @Component({
   selector: 'app-admin-user-view',
@@ -13,7 +14,7 @@ import { Customer } from '../CustomClasses/Customer';
 export class AdminUserViewComponent implements OnInit {
 
   userData: Customer[] = new Array<Customer>();
-  issuedBooks: DBBook[][] = new Array<Array<DBBook>>();
+  issuedBooks: BookTransaction[][] = [];
   userNames: string[] = new Array<string>();
   constructor(private userService: UserDataService, private bookService: Transaction) { }
 
@@ -28,17 +29,21 @@ export class AdminUserViewComponent implements OnInit {
         this.bookService.transactions(user).subscribe(res => {
           console.log(res);
           let books: DBBook[] = JSON.parse(localStorage.getItem('books'));
+          this.issuedBooks[userIndex] = [];
           for (let i = 0; i < res.length; i++) {
-            books.forEach(element => {
-              if(element.ISBN === res[i].ISBN){
-                console.log(element.ISBN+"ok");
-                this.issuedBooks[userIndex].push(element);
+            // books.forEach(element => {
+            //   if(element.ISBN === res[i].ISBN){
+            //     console.log(element.ISBN+"ok");
+            //     res[i].Title = element.Title;
+            //      res[i].Title = element.Title;
+                this.issuedBooks[userIndex].push(res[i]);
                 console.log(this.issuedBooks[userIndex]);
-              }
-            });
+            //  }
+            };
+            //);
             
-          }
-        });
+          })
+        //});
       }
     });
           // for (const id in res) {
