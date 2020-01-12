@@ -6,6 +6,7 @@ import { DBBook } from '../CustomClasses/DBBook';
 //import { DBBook } from '../CustomClasses/DbBook';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from '../CustomClasses/Customer';
+import { BookTransaction } from '../CustomClasses/BookTransaction';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,8 +23,9 @@ export class UserProfileComponent implements OnInit {
   dbuser: Customer = new Customer('','','','',null,'','','');
   issuedBooks: DBBook[] = new Array<DBBook>();
   dbbook: DBBook;
+  bookTransaction: BookTransaction;
   constructor(//private userService: UserDataService, 
-    private bookService: Transaction, private fb: FormBuilder) {
+    private transactionService: Transaction, private fb: FormBuilder) {
     this.createForm();
   }
   ngOnInit() {
@@ -31,31 +33,51 @@ export class UserProfileComponent implements OnInit {
       this.uploadedPicture = true;
     }
     this.dbuser = JSON.parse(localStorage.getItem('login'));
+    this.issuedBooks = JSON.parse(localStorage.getItem('transactions'));
     // for (const book of this.dbuser.issuedBooks) {
     //   this.bookService.getBook(book.isbn).then(res => {
     //     this.issuedBooks.push(res);
     //   });
     // }
   }
-  async ReturnBook(index: number) {
-    // const isbn = this.dbuser.user.issuedBooks[index].isbn;
-    //   await this.bookService.getBook(isbn).then(res => {
-    //    this.dbbook.id = isbn;
-    //    this.dbbook.book = res;
-    //   });
-    //   this.issuedBooks = this.issuedBooks.filter(book => book.id !== this.dbbook.book.id);
-    //   this.dbuser.user.issuedBooks = this.dbuser.user.issuedBooks.filter(book => book.isbn !== book.isbn);
-    //   localStorage.setItem('user', JSON.stringify(this.dbuser));
-    //   this.dbbook.book.noOfCopies = this.dbbook.book.noOfCopies + 1;
-    //   this.bookService.updateBook(isbn, this.dbbook.book).subscribe();
-    //   this.userService.updateUser(this.dbuser.id, this.dbuser.user).subscribe();
-    }
-    RenewBook(index: number) {
-      // const due = new Date(this.dbuser.user.issuedBooks[index].dueOn);
-      // this.dbuser.user.issuedBooks[index].dueOn = new Date(due.getFullYear(), due.getMonth(), due.getDate() + 5);
-      // localStorage.setItem('user', JSON.stringify(this.dbuser));
-      // this.userService.updateUser(this.dbuser.id, this.dbuser.user).subscribe();
-    }
+  ReturnBook(index: number) {
+    
+
+    const ISBN = this.issuedBooks[index].ISBN;
+    const LibrarianId = "1";
+    var CustomerId = '11';
+    if(this.dbuser == null)
+      console.log("Login first");
+    else 
+      CustomerId = this.dbuser.CustomerID.toString();
+    console.log('Return book clicked');
+    this.bookTransaction = new BookTransaction(ISBN, LibrarianId, CustomerId);
+    console.log(this.bookTransaction);
+    this.transactionService.returnBook(this.bookTransaction).subscribe();
+    // this.dbuser.user.issuedBooks = this.dbuser.user.issuedBooks.filter(book => book.isbn !== this.dbbook.id);
+    // localStorage.setItem('user', JSON.stringify(this.dbuser));
+    // this.dbbook.book.noOfCopies = this.dbbook.book.noOfCopies + 1;
+    // this.bookService.updateBook(this.dbbook.id, this.dbbook.book).subscribe();
+    // this.userService.updateUser(this.dbuser.id, this.dbuser.user).subscribe();
+  }
+  RenewBook(index: number) {
+    const ISBN = this.issuedBooks[index].ISBN;
+    const LibrarianId = "1";
+    var CustomerId = '11';
+    if(this.dbuser == null)
+      console.log("Login first");
+    else 
+      CustomerId = this.dbuser.CustomerID.toString();
+    console.log('Renew book clicked');
+    this.bookTransaction = new BookTransaction(ISBN, LibrarianId, CustomerId);
+    console.log(this.bookTransaction);
+    this.transactionService.renewBook(this.bookTransaction).subscribe();
+    // const renewIndex = this.dbuser.user.issuedBooks.findIndex(book => book.isbn === this.dbbook.id);
+    // const due = new Date(this.dbuser.user.issuedBooks[renewIndex].dueOn);
+    // this.dbuser.user.issuedBooks[renewIndex].dueOn = new Date(due.getFullYear(), due.getMonth(), due.getDate() + 5);
+    // localStorage.setItem('user', JSON.stringify(this.dbuser));
+//this.userService.updateUser(this.dbuser.id, this.dbuser.user).subscribe(() => this.renewed = true);
+  }
     EditProfile() {
       this.editing = true;
     }

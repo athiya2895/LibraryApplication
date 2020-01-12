@@ -1,13 +1,13 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
         <span *ngIf="!uploadedPicture"><i class="fa fa-user" style="font-size:200px"></i></span>
         <span *ngIf="uploadedPicture"><img [src]="url" width="150px" height="200px"/></span>
-    </div>
+    </div> -->
     <div class="col-md-4"><br><br>
-        <p style="font-size:xx-large" *ngIf="!editing">{{dbuser.Name}}</p>  
-        <div *ngIf="editing">
+        <p style="font-size:xx-large">{{dbuser.Name}}</p>  
+        <!-- <div *ngIf="editing">
             <form [formGroup]="profileForm">
                 <label for="avatar">Avatar</label>
                 <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput/>
@@ -23,7 +23,7 @@
         </div>
         <button *ngIf="!editing" class="btn btn-primary" (click)="EditProfile()">Edit</button>
         <button *ngIf="editing" class="btn btn-primary" (click)="SaveProfile()" [disabled]="!profileForm.valid">Save</button>
-        <button *ngIf="editing" class="btn btn-primary" (click)="CancelProfile()">Cancel</button>
+        <button *ngIf="editing" class="btn btn-primary" (click)="CancelProfile()">Cancel</button> -->
     </div>
   </div>
 </div>
@@ -44,8 +44,8 @@
         <tr *ngFor = "let book of issuedBooks;let index=index;">
           <td>{{index+1}}</td>
           <td>{{book.title}}</td>
-          <td>{{dbuser.user.issuedBooks[index].issuedOn | date}}</td>
-          <td>{{dbuser.user.issuedBooks[index].dueOn | date}}</td>
+          <td>{{book.IssuedOn | date}}</td>
+          <td>{{book.DueOn | date}}</td>
           <td><button class="btn btn-primary" (click)="ReturnBook(index)">Return</button></td>
           <td><button class="btn btn-primary" (click)="RenewBook(index)">Renew</button></td>
         </tr>

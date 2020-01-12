@@ -45,7 +45,7 @@ namespace LibraryServiceLayer.Services
                 Categories = book.Categories,
                 AverageRating = book.AverageRating,
                 Author = authors.ElementAt(i++),
-                noOfCopies = book.BooksAtLibraries.FirstOrDefault().NumberOfCopies
+                noOfCopies = 3
             });
             return temp;
         }
