@@ -58,10 +58,12 @@ export class SignupComponent implements OnInit {
         var name = firstName + " " + lastName;
         //this.user = new User('user', email, password);
         this.customer = new Customer(email,name, sex,address,dob,phoneNumber,password,'User');
-        this.auth.postUser(this.customer).subscribe();
+        this.auth.postUser(this.customer).subscribe(res=>{
+            console.log(res);
+            this.router.navigate(['']);
+        });
         // this.loggedInUser.insertUser(this.user);
-        console.log(this.customer);
-        this.router.navigate(['']);
+        
         // display form values on success
         //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     }

@@ -24,7 +24,7 @@
             <mat-card class="example-card mat-elevation-z6">
                 <mat-card-header>
                     <mat-card-title (click)="describeBook(books)" class="header">{{ books.Title }}</mat-card-title>
-                    <button *ngIf = "isAdmin" class = "btn btn-primary-outline" (click)="deleteBook(books)"><i class="fa fa-trash" style="font-size:24px"></i>delete</button>
+                    <button *ngIf = "isAdmin === true" class = "btn btn-primary-outline" (click)="deleteBook(books)"><i class="fa fa-trash" style="font-size:24px"></i>Delete</button>
                 </mat-card-header>
                 <img mat-card-image (click)="describeBook(books)" [src]="books.ImageLinks[0]" height="300px;" alt="{{ books.Title }}">
                 <mat-card-content (click)="describeBook(books)">

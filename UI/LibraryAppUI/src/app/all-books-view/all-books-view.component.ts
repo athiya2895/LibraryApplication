@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Transaction } from '../Services/Transaction.service';
 import { User } from '../CustomClasses/User';
 import { Customer } from '../CustomClasses/Customer';
+import { AdminGaurd } from '../Services/Authentication/admin-guard';
 
 @Component({
   selector: 'app-all-books-view',
@@ -18,7 +19,8 @@ export class AllBooksViewComponent implements OnInit {
   constructor(private router: Router,
     private bookservice: BookService,
     private dialog: MatDialog,
-    private transactionService: Transaction) { }
+    private transactionService: Transaction,
+    private guard: AdminGaurd) { }
   rowNo = 3;
   //books: Book[] = new Array<Book>();
   searchBook = '';
@@ -27,14 +29,14 @@ export class AllBooksViewComponent implements OnInit {
   dbBook: DBBook = null;
   allBooks: DBBook[] = new Array<DBBook>();
   selectGenre = '';
-  isAdmin = true;
+  isAdmin = false;
   deleteSure = false;
   data;
   async ngOnInit() {
-    // if (await this.gaurd.canActivate()) {
-     this.isAdmin = true;
-    // }
-   // this.books = new Array<Book>();
+    if (await this.guard.canActivate()) {
+      this.isAdmin = true;
+    }
+   //this.books = new Array<Book>();
     console.log(this.isAdmin);
      this.bookservice.getBooks().subscribe(res =>
      {
