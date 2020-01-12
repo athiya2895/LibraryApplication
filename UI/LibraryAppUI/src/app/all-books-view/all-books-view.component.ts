@@ -47,7 +47,7 @@ export class AllBooksViewComponent implements OnInit {
            console.log(res);
            //this.allBooks = res;
            //console.log(this.allBooks);
-           //localStorage.setItem('books',JSON.stringify(this.allBooks));
+           localStorage.setItem('transactions',JSON.stringify(res));
          });;
       });
       let user: Customer = JSON.parse(localStorage.getItem('login'));

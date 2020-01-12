@@ -32,6 +32,7 @@ export class BookDescComponent implements OnInit {
   rating: number;
   renewed = false;
   limitReached = false;
+  transactions: BookTransaction[] = [];
   async ngOnInit() {
     console.log(this.isAdmin);
     this.customer = JSON.parse(localStorage.getItem('login'));
@@ -39,6 +40,15 @@ export class BookDescComponent implements OnInit {
     this.inEdit = false;
     this.id = this.route.snapshot.paramMap.get('id');
     this.book = JSON.parse(localStorage.getItem('BookDesc'));
+    this.transactions = JSON.parse(localStorage.getItem('transactions'));
+    if(this.transactions !== undefined && this.transactions.length === 3){
+      this.limitReached = true;
+    }
+    this.transactions.forEach(element => {
+      if(element.ISBN === this.book.ISBN){
+        this.issued = true;
+      }
+    });
     //this.book = this.dbbook.book;
     // if (this.dbuser.user.issuedBooks !== undefined) {
     // if (this.dbuser.user.issuedBooks.length === 3) {
