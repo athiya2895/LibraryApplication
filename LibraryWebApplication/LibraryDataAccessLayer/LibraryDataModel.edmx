@@ -75,7 +75,7 @@
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" Nullable="false" />
           <Property Name="PhoneNumber" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
           <Property Name="Role" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -400,7 +400,7 @@
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BookTransactions" Relationship="Self.FK_BookTransactions_Customer" FromRole="Customer" ToRole="BookTransactions" />
           <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />

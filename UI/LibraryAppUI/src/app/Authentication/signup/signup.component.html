@@ -41,6 +41,7 @@
                     <input type="phoneNumber" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
                     <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
                         <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+                        <div *ngIf="f.password.errors.maxlength">Phone number can be only 6 characters</div>
                     </div>
                 </div>
             </div>

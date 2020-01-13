@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
         birthDate: [null, Validators.required],
-        phoneNumber: ['', Validators.required],
+        phoneNumber: ['', [Validators.required, Validators.maxLength(10)]],
         address: ['', Validators.required],
         gender: ['male',Validators.required]
     }, {
@@ -70,7 +70,8 @@ export class SignupComponent implements OnInit {
 
     onReset() {
         this.submitted = false;
-        this.registerForm.reset();
+        //this.registerForm.reset();
+         this.router.navigate(['']);
     }
 }
    // custom validator to check that two fields match

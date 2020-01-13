@@ -77,6 +77,8 @@ export class AllBooksViewComponent implements OnInit {
       () => {
         //this.done = true;
         console.log(true);
+        this.allBooks = this.allBooks.filter(book => book.ISBN !== deletedBook.ISBN);
+        localStorage.setItem('books',JSON.stringify(this.allBooks));
       }
     );;//.then();
     }

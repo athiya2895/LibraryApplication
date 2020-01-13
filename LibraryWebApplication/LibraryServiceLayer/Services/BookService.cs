@@ -54,6 +54,8 @@ namespace LibraryServiceLayer.Services
             foreach (var auth in booksAuthor) {
                 unitOfWork.BooksAuthorRepository.Insert(auth);
             }
+            var libraryBook = new BooksAtLibrary() { ISBN = book.ISBN, LibraryID = 1, NumberOfCopies = book.noOfCopies };
+            unitOfWork.BooksAtLibraryRepository.Insert(libraryBook);
             unitOfWork.BookRepository.Insert(book);
             unitOfWork.Save();                
         }

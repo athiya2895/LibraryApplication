@@ -59,17 +59,6 @@ namespace LibraryWebApplicationAPI.Controllers
             transactionService.ReturnBook(customerId, ISBN);
         }
 
-        /// <summary>
-        /// Method to handle renew book
-        /// </summary>
-        /// <param name="transaction"></param>
-        [HttpPut]
-        public void RenewBook([FromBody]JObject transaction)
-        {
-            int customerId = transaction.Value<int>("CustomerId");
-            string ISBN = transaction.Value<string>("ISBN");
-
-            transactionService.RenewBook(customerId, ISBN);
-        }
+        
     }
 }

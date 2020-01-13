@@ -18,7 +18,7 @@ namespace LibraryWebApplicationAPI.Controllers
         const string BOOK_NOT_EXIST = "Book with this ISBN doesn't exist";
         const string BOOK_IS_ISSUED = "Book cannot be deleted since it is issued by a customer";
         const string DELETE_SUCCESSFUL = "Book deleted successfully";
-
+        TransactionService transactionService = new TransactionService();
         BookService bookService = new BookService();
 
         public IEnumerable<object> GetAllBooks()
@@ -85,6 +85,20 @@ namespace LibraryWebApplicationAPI.Controllers
             //    return Content(HttpStatusCode.NotFound, message);
             //}
         }
+        /// <summary>
+        /// Method to handle renew book
+        /// </summary>
+        /// <param name="transaction"></param>
+        [HttpPut]
+        public void RenewBook([FromBody]JObject transaction)
+        {
+            int customerId = transaction.Value<int>("CustomerId");
+            string ISBN = transaction.Value<string>("ISBN");
+
+            transactionService.RenewBook(customerId, ISBN);
+        }
     }
+
+    
 }
 

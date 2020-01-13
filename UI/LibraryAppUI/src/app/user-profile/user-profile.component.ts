@@ -53,7 +53,10 @@ export class UserProfileComponent implements OnInit {
     console.log('Return book clicked');
     this.bookTransaction = new BookTransaction(ISBN, LibrarianId, CustomerId);
     console.log(this.bookTransaction);
-    this.transactionService.returnBook(this.bookTransaction).subscribe();
+    this.transactionService.returnBook(this.bookTransaction).subscribe(res=>{
+      this.issuedBooks = this.issuedBooks.filter(data=>data.ISBN!==ISBN);
+      localStorage.setItem('transactions',JSON.stringify(this.issuedBooks));
+    });
     // this.dbuser.user.issuedBooks = this.dbuser.user.issuedBooks.filter(book => book.isbn !== this.dbbook.id);
     // localStorage.setItem('user', JSON.stringify(this.dbuser));
     // this.dbbook.book.noOfCopies = this.dbbook.book.noOfCopies + 1;
